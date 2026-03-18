@@ -222,6 +222,12 @@ body::before {
 
 .chip-icon { font-size: 15px; }
 
+.mascot-img {
+  left: calc(100% + 10px);
+  bottom: -15px;
+  width: 125px;
+}
+
 /* ---- D-Day 카운터 ---- */
 .dday-bar {
   display: flex;
@@ -442,13 +448,56 @@ section { margin-top: 48px; }
   gap: 20px;
 }
 .benefit-card {
-  padding: 29px 24px 46px 24px;
   text-align: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 15px;
   position: relative;
+  height: 100%;
+}
+
+.benefit-card:not(.special-benefit-card) {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 60px 40px;
+  gap: 10px;
+  padding: 50px 20px 20px 20px;
+}
+
+.benefit-body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.benefit-card > .tag-list {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: center;
+  gap: 7px;
+  margin: 0;
+}
+
+.benefit-card .benefit-warning {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0 10px;
+  text-align: center;
+  font-size: 10px;
+  color: var(--c-pink);
+  font-weight: 500;
+  margin: 0;
+  letter-spacing: -0.02em;
+  line-height: 1.4;
 }
 
 /* 스페셜 혜택 전용 레이아웃 분리 */
@@ -542,9 +591,7 @@ section { margin-top: 48px; }
   line-height: 1.6;
 }
 
-.benefit-card > p:first-of-type {
-  margin-bottom: auto; /* 태그 블록을 카드 맨 아래로 밀어내기 위해 사용 */
-}
+
 
 .tag-list {
   display: flex;
@@ -600,10 +647,8 @@ section { margin-top: 48px; }
 .gift-bundle-img {
   max-width: 100%;
   max-height: none;
-  border-radius: 22px;
   margin-bottom: 35px;
   margin-top: 0;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
 .special-gift-title {
@@ -738,12 +783,57 @@ section { margin-top: 48px; }
   line-height: 1.55;
 }
 
+.lineup-pills-wrap {
+  position: relative;
+  width: max-content;
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.pills-scroll-container {
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  width: 100%;
+  padding: 5px 0; /* Box-shadow clipping 방지 */
+}
+.pills-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
 .lineup-pills {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 11px;
-  justify-content: center;
+  justify-content: flex-start;
+  width: max-content;
+  margin: 0 auto;
 }
+
+.lineup-pills-wrap .pills-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  z-index: 10;
+  display: flex; /* 기본 데스크탑/모바일 모두 표시 */
+  background: white; /* 100% 불투명한 흰색으로 변경하여 아예 안 보이게 처리 */
+  border: 1px solid var(--c-card-border);
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  color: var(--c-blue);
+  box-shadow: 0 4px 12px rgba(79, 124, 255, 0.15);
+}
+.lineup-pills-wrap .pills-nav-btn:active {
+  transform: translateY(-50%) scale(0.9);
+}
+.lineup-pills-wrap .pills-nav-btn.prev { left: -50px; }
+.lineup-pills-wrap .pills-nav-btn.next { right: -50px; }
 
 .lineup-pill {
   background: var(--c-card); /* rgba(79,124,255,0.1) 대신 흰색 베이스 */
@@ -1016,18 +1106,96 @@ section { margin-top: 48px; }
   .page-wrapper { padding: 0 12px 60px; }
   section { margin-top: 36px; }
   .card { padding: 20px 16px; }
-  .gift-image-card {
+  .benefit-card { padding: 24px 16px 58px 16px; }
+  .gift-image-card,
+  .max-features,
+  .benefits-grid {
     grid-template-columns: 1fr;
   }
   .gift-image-card img { height: 200px; }
   .faq-answer-inner { padding: 0 16px 18px 16px; }
-  .dday-unit { min-width: 50px; padding: 8px 12px; }
-  .dday-num { font-size: 22px; }
+  
+  .dday-bar { gap: 8px; }
+  .dday-unit { min-width: 48px; padding: 10px 12px; border-width: 2px; border-radius: 14px; }
+  .dday-num { font-size: 28px; }
+  .dday-sep { font-size: 26px; margin-top: -4px; margin-left: -2px; margin-right: -2px; }
+  .dday-label { font-size: 11px; margin-top: 4px; }
 }
 
 @media (max-width: 480px) {
   .hero-title { font-size: 28px; }
   .overview-icon { font-size: 22px; }
+  
+  .dday-bar { gap: 6px; }
+  .dday-unit { min-width: 42px; padding: 8px 10px; border-radius: 12px; }
+  .dday-num { font-size: 24px; }
+  .dday-sep { font-size: 22px; margin-top: -2px; margin-left: -3px; margin-right: -3px; }
+  .dday-label { font-size: 10px; margin-top: 3px; }
+  
+  .meta-row { font-size: 12.5px; padding: 6px 16px; min-width: 90%; justify-content: center; }
+  .mascot-img {
+    width: 65px;
+    left: auto;
+    right: -25px;
+    bottom: -15px;
+  }
+}
+
+@media (max-width: 640px) {
+  /* 모바일 라인업 가로 스크롤 요소 여백 조정 */
+  .lineup-pills {
+    padding: 0 45px; /* 양끝 화살표 영역 공간 띄우기 */
+  }
+  /* 모바일 라인업 가로 스크롤 가림막 (가상 요소 사용) */
+  .lineup-pills-wrap::before,
+  .lineup-pills-wrap::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50px;
+    z-index: 5;
+    pointer-events: none;
+  }
+  .lineup-pills-wrap::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 0) 100%);
+  }
+  .lineup-pills-wrap::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 0) 100%);
+  }
+
+  /* 다시 동그란 버튼 모양으로 복구하되 모바일에서는 안쪽으로 배치 */
+  .lineup-pills-wrap .pills-nav-btn {
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--c-card-border);
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(79, 124, 255, 0.15);
+  }
+  .lineup-pills-wrap .pills-nav-btn:hover {
+    transform: translateY(-50%) scale(1.05);
+  }
+  .lineup-pills-wrap .pills-nav-btn:active {
+    transform: translateY(-50%) scale(0.9);
+  }
+  .lineup-pills-wrap .pills-nav-btn.prev, 
+  .lineup-pills-wrap .pills-nav-btn.prev:hover { 
+    left: 8px; 
+    background: white; 
+    justify-content: center; 
+    padding-left: 0; 
+  }
+  .lineup-pills-wrap .pills-nav-btn.next,
+  .lineup-pills-wrap .pills-nav-btn.next:hover { 
+    right: 8px; 
+    background: white; 
+    justify-content: center; 
+    padding-right: 0; 
+  }
 }
 
 /* ============================================
