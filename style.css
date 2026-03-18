@@ -502,13 +502,16 @@ section { margin-top: 48px; }
 
 /* 스페셜 혜택 전용 레이아웃 분리 */
 .special-benefit-card {
-  padding: 0; /* 내부 영역별로 따로 패딩 지정 */
-  overflow: hidden; /* 위쪽 둥근 모서리에 사진이 맞춰지도록 */
+  padding: 0;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .special-benefit-card .top-half {
   width: 100%;
-  height: 198px; /* 대략적인 사진 영역 높이 상향 */
+  height: 250px;
   background: rgba(255, 255, 255, 0.4);
   display: flex;
   align-items: center;
@@ -516,13 +519,26 @@ section { margin-top: 48px; }
   position: relative;
 }
 
+.special-benefit-card .top-half img {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  height: 190px;
+  object-fit: contain;
+  transform: scale(1.25);
+  z-index: 0;
+}
+
 .special-benefit-card .bottom-half {
-  padding: 26px 22px;
+  padding: 35px 22px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 13px;
+  justify-content: center;
+  gap: 15px;
   width: 100%;
+  flex: 1;
 }
 
 .benefit-number {
@@ -845,7 +861,6 @@ section { margin-top: 48px; }
   font-size: 15.5px;
   font-weight: 700; /* 600 -> 700으로 강조 */
   color: var(--c-blue);
-  box-shadow: 0 4px 12px rgba(79,124,255,0.06); /* 입체감 (그림자) 추가 */
   transition: var(--transition);
   cursor: pointer; /* 클릭 가능한 요소임을 나타냄 */
 }
@@ -855,8 +870,6 @@ section { margin-top: 48px; }
   background: var(--c-blue);
   color: #fff;
   border-color: var(--c-blue);
-  box-shadow: 0 8px 20px rgba(79,124,255,0.35);
-  transform: translateY(-2px);
 }
 
 .lineup-pill:hover:not(.active) {
