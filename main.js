@@ -75,25 +75,25 @@ const bikeData = {
     name: '프로맥스',
     price: '1,590,000원',
     link: '#', // 실제 상세페이지 링크로 수정
-    images: ['images/promax1.png', 'images/promax2.png', 'images/1-1_xtron_pro_max_b.png']
+    images: ['images/1-1_xtron_pro_max_b.png', 'images/1-2_xtron_pro_max_g.png', 'images/1-3_xtron_pro_max_w.png']
   },
   'city': {
     name: '시티맥스',
     price: '1,490,000원',
     link: '#',
-    images: ['images/citymax1.png', 'images/citymax2.png']
+    images: ['images/2-1_xtron_city_max_b.png', 'images/2-2_xtron_city_max_g.png']
   },
   'tour': {
     name: '투어맥스',
     price: '1,490,000원',
     link: '#',
-    images: ['images/tourmax1.png', 'images/tourmax2.png']
+    images: ['images/3-1_xtron_tour_max_b.png', 'images/3-2_xtron_tour_max_g.png']
   },
   'promini': {
     name: '프로미니맥스',
     price: '예상가 0,000,000원',
     link: '#',
-    images: ['images/promini1.png', 'images/promini2.png'] // 예시
+    images: ['images/4-1_xtron_pro_mini_max_b.png', 'images/4-2_xtron_pro_mini_max_g.png', 'images/4-3_xtron_pro_mini_max_w.png']
   }
 };
 
@@ -194,25 +194,25 @@ const extraData = {
     name: '자토바이',
     price: '예상가 0,000,000원',
     link: '#', // 실제 링크 연결
-    images: ['images/slim1.png', 'images/slim2.png']
+    images: ['images/5-1_xtron_mini_b.png', 'images/5-2_xtron_slim_b.png', 'images/5-3_xtron_urban_b.png']
   },
   'samryun': {
     name: '삼륜 모델',
     price: '예상가 0,000,000원',
     link: '#',
-    images: ['images/neo1.png', 'images/neo2.png']
+    images: ['images/6_xtron_neo_be.png']
   },
   'nonfold': {
     name: '비접이식 라인업',
     price: '예상가 0,000,000원',
     link: '#',
-    images: ['비접이식 사진 1', '비접이식 사진 2'] // 예시
+    images: ['images/7-1_xtron_gt_s_b.png', 'images/7-2_xtron_gt_g.png', 'images/7-3_xtron_gt_mini_w.png']
   },
   'xseries': {
     name: 'X시리즈',
     price: '예상가 0,000,000원',
     link: '#',
-    images: ['X시리즈 사진 1', 'X시리즈 사진 2'] // 예시
+    images: ['images/8-1_xtron_pro_s_w.png', 'images/8-2_xtron_pro_g.png', 'images/8-3_xtron_city_g.png', 'images/8-4_xtron_tour_g.png', 'images/8-5_xtron_pro_mini_w.png', 'images/8-6_xtron_eq_w.png']
   }
 };
 
@@ -384,4 +384,51 @@ function scrollToTop() {
     top: 0,
     behavior: 'smooth'
   });
+}
+
+/* ============================================
+   럭키 드로우 미니게임
+============================================ */
+const luckyItems = [
+  { name: '신세계 상품권', chance: 15, icon: '🎫', color: 'var(--c-gold)' },
+  { name: '퀄리스포츠 백', chance: 55, icon: '🎒', color: 'var(--c-blue)' },
+  { name: '브레이크 패드', chance: 30, icon: '🛑', color: 'var(--c-cyan)' }
+];
+
+function playLuckyDraw() {
+  const modal = document.getElementById('luckyModal');
+  const resultBox = document.getElementById('luckyResultBox');
+  
+  modal.classList.add('show');
+  resultBox.innerHTML = '<div class="lucky-loading">🎁 두근두근... 캡슐 뽑는 중!</div>';
+  
+  setTimeout(() => {
+    const random = Math.random() * 100;
+    let sum = 0;
+    let wonItem = luckyItems[2];
+    
+    for (let item of luckyItems) {
+      sum += item.chance;
+      if (random <= sum) {
+        wonItem = item;
+        break;
+      }
+    }
+    
+    resultBox.innerHTML = `
+      <div class="lucky-won-icon" style="color: ${wonItem.color};">${wonItem.icon}</div>
+      <h3 class="lucky-won-title">축하합니다!</h3>
+      <div class="lucky-won-name" style="color: ${wonItem.color};">${wonItem.name}</div>
+      <p class="lucky-won-desc">당첨되셨습니다 🎉<br>현장에서 진짜 캡슐을 뽑아보세요!</p>
+      <button class="lucky-retry-btn" onclick="retryLuckyDraw()">다시 뽑아보기</button>
+    `;
+  }, 1200);
+}
+
+function closeLuckyModal() {
+  document.getElementById('luckyModal').classList.remove('show');
+}
+
+function retryLuckyDraw() {
+  playLuckyDraw();
 }
