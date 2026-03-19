@@ -5,10 +5,10 @@ function updateCountdown() {
   const diff = target - now;
 
   if (diff <= 0) {
-    document.getElementById('dd').textContent = '🎉';
-    document.getElementById('dh').textContent = '진행';
-    document.getElementById('dm').textContent = '중!';
-    document.getElementById('ds').textContent = '🎊';
+    const timerEl = document.getElementById('dday-timer');
+    const openEl = document.getElementById('dday-open');
+    if (timerEl) timerEl.style.display = 'none';
+    if (openEl) openEl.style.display = 'flex';
     return;
   }
 

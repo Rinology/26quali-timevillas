@@ -22,7 +22,7 @@
     <div class="hero-bg" id="heroBg"></div>
     <div class="hero-overlay"></div>
     <!-- 디데이 타이머 (히어로 컨텐츠와 분리) -->
-    <div class="dday-bar">
+    <div id="dday-timer" class="dday-bar">
       <div class="dday-unit">
         <span class="dday-num" id="dd">--</span>
         <span class="dday-label">DAYS</span>
@@ -42,6 +42,13 @@
         <span class="dday-num" id="ds">--</span>
         <span class="dday-label">SECS</span>
       </div>
+    </div>
+    
+    <!-- 오픈 배너 (디데이 종료 시 노출) -->
+    <div id="dday-open" style="display: none; justify-content: center; margin: 0 20px 24px; animation: fadeInUp 0.7s 0.2s ease both;">
+      <h2 class="hero-title" style="margin: 0; padding: 16px 48px; background: rgba(255,255,255,0.9); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 2px solid rgba(79,124,255,0.3); border-radius: 100px; box-shadow: 0 12px 32px rgba(79,124,255,0.15);">
+        🎉 <span>OPEN!</span> 🎉
+      </h2>
     </div>
 
     <div class="hero-content">
@@ -494,7 +501,7 @@
       </h2>
       <p style="font-size: clamp(15px, 2.5vw, 18px); color: var(--c-muted); margin-bottom: 40px; line-height: 1.6; font-weight: 500;">
         신제품 시승부터 빵빵한 7종 풀패키지 사은품,<br>
-        무료 직배송 혜택까지 — 올봄 최고의 기회입니다.<br>
+        무료 조립,배송 혜택까지 — 올봄 최고의 기회입니다.<br>
         이번 주말, 수원 타임빌라스로 가벼운 마음으로 나들이 오세요!
       </p>
       <div class="cta-buttons">
