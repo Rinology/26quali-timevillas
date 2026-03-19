@@ -75,7 +75,7 @@ const bikeData = {
     name: '프로맥스',
     price: '1,590,000원',
     link: '#', // 실제 상세페이지 링크로 수정
-    images: ['images/promax1.png', 'images/promax2.png']
+    images: ['images/promax1.png', 'images/promax2.png', 'images/1-1_xtron_pro_max_b.png']
   },
   'city': {
     name: '시티맥스',
