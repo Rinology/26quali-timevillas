@@ -44,7 +44,7 @@
 /* ---- 리셋 & 기반 ---- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 
 body {
   font-family: 'Paperlogy', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
@@ -162,7 +162,7 @@ body::before {
 }
 
 .hero-title {
-  font-size: clamp(44px, 8.8vw, 84px);
+  font-size: clamp(32px, 8vw, 84px);
   font-weight: 900;
   color: #1e2d5a;
   line-height: 1.2;
@@ -304,7 +304,7 @@ section { margin-top: 48px; }
 }
 
 .section-title {
-  font-size: clamp(44px, 8.8vw, 84px);
+  font-size: clamp(32px, 8vw, 84px);
   font-weight: 900;
   color: #1e2d5a;
   line-height: 1.2;
@@ -387,7 +387,8 @@ section { margin-top: 48px; }
   display: flex;
   align-items: center;
   gap: 18px;
-  width: 396px; /* 가장 긴 텍스트에 맞춰 고정 크기 상향 적용 */
+  width: 100%;
+  max-width: 396px;
   padding: 18px 31px 18px 22px;
   background: var(--c-card);
   backdrop-filter: blur(20px);
@@ -1136,7 +1137,6 @@ section { margin-top: 48px; }
 }
 
 @media (max-width: 480px) {
-  .hero-title { font-size: 28px; }
   .overview-icon { font-size: 22px; }
   
   .dday-bar { gap: 6px; }
