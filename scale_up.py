@@ -14,7 +14,7 @@ def scale(m):
         return f"{int(round(val))}{u}"
     else:
         # Avoid things like 1.1000vw
-        res = round(val, 2)
+        res = float(f"{val:.2f}")
         if res.is_integer():
             return f"{int(res)}{u}"
         return f"{res}{u}"
