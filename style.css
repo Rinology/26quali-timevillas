@@ -523,12 +523,12 @@ section { margin-top: 48px; }
 
 .special-benefit-card .top-half img {
   position: absolute;
-  top: 50px;
+  top: 40px; /* 50px -> 40px 위로 당김 */
   left: 0;
   width: 100%;
-  height: 190px;
+  height: 200px; /* 190px -> 200px */
   object-fit: contain;
-  transform: scale(1);
+  transform: scale(1.03); /* 1.15 -> 1.03 (약 10% 축소) */
   z-index: 0;
 }
 
@@ -604,13 +604,24 @@ section { margin-top: 48px; }
 }
 
 .benefit-card p {
-  font-size: 14.5px;
+  font-size: 13.5px;
   color: var(--c-muted);
-  line-height: 1.6;
+  line-height: 1.5;
+  margin: 0;
+  word-break: keep-all;
 }
 
-
-
+/* 스페셜 카드는 박스가 크므로 내부 컨텐츠 사이즈 키움 */
+.special-benefit-card h3 {
+  font-size: 22px;
+}
+.special-benefit-card p {
+  font-size: 15.5px;
+}
+.special-benefit-card .benefit-number-special {
+  font-size: 14px;
+  padding: 4px 14px;
+}
 .tag-list {
   display: flex;
   flex-wrap: wrap;
