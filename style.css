@@ -803,7 +803,7 @@ section { margin-top: 48px; }
 .lineup-pills-wrap {
   position: relative;
   width: max-content;
-  max-width: 100%;
+  max-width: 620px; /* 약 4개 모델만 보이도록 제한. 화면 커져도 화살표가 너무 멀어지지 않음 */
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -837,9 +837,16 @@ section { margin-top: 48px; }
   transform: translateY(-50%);
   width: 40px;
   height: 40px;
+  min-width: 40px;
+  max-width: 40px;
+  min-height: 40px;
+  max-height: 40px;
+  padding: 0;
+  margin: 0;
+  flex-shrink: 0;
   z-index: 10;
-  display: flex; /* 기본 데스크탑/모바일 모두 표시 */
-  background: white; /* 100% 불투명한 흰색으로 변경하여 아예 안 보이게 처리 */
+  display: flex !important;
+  background: white;
   border: 1px solid var(--c-card-border);
   border-radius: 50%;
   align-items: center;
@@ -851,8 +858,8 @@ section { margin-top: 48px; }
   transform: translateY(-50%) scale(0.9);
 }
 /* 안쪽으로 배치하여 버튼 아래로 탭들이 자연스럽게 숨겨지도록 처리 */
-.lineup-pills-wrap .pills-nav-btn.prev { left: 8px; }
-.lineup-pills-wrap .pills-nav-btn.next { right: 8px; }
+.lineup-pills-wrap .pills-nav-btn.prev { left: 8px; justify-content: center; padding: 0; }
+.lineup-pills-wrap .pills-nav-btn.next { right: 8px; justify-content: center; padding: 0; }
 
 .lineup-pill {
   background: var(--c-card); /* rgba(79,124,255,0.1) 대신 흰색 베이스 */
