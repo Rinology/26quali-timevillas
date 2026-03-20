@@ -1,0 +1,337 @@
+:root {
+  --c-pink: #fdf2f8;
+  --c-cyan: #4facfe;
+  --c-blue: #1e2d5a;
+  --c-light: #f8fafc;
+  --c-card: #ffffff;
+  --c-card-border: rgba(30, 45, 90, 0.08);
+
+  --font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: #f4f6fc;
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+  padding: 40px 20px;
+}
+
+.preview-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  color: var(--c-blue);
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.intro {
+  text-align: center;
+  color: #666;
+  margin-bottom: 50px;
+  font-size: 16px;
+}
+
+.alt-section {
+  background: white;
+  border-radius: 24px;
+  padding: 40px;
+  margin-bottom: 40px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  border: 1px solid var(--c-card-border);
+}
+
+.alt-section h2 {
+  font-size: 20px;
+  color: var(--c-blue);
+  margin-top: 0;
+  margin-bottom: 8px;
+  padding-bottom: 12px;
+  border-bottom: 2px dashed #eee;
+}
+
+.desc {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 30px;
+}
+
+/* ================= 대안 1 ================= */
+.secret-card {
+  background: linear-gradient(145deg, #1e2d5a, #0b1533);
+  border-radius: 20px;
+  padding: 32px;
+  color: white;
+  box-shadow: 0 20px 40px rgba(30,45,90,0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.secret-card::before {
+  content: '';
+  position: absolute;
+  top: -50px; right: -50px;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(79,172,254,0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.secret-header {
+  margin-bottom: 24px;
+}
+
+.secret-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  color: #4facfe;
+}
+
+.secret-header h3 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.secret-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.secret-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: rgba(255,255,255,0.05);
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.secret-icon {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.secret-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.secret-text strong {
+  font-size: 16px;
+  color: #fff;
+}
+
+.secret-text span {
+  font-size: 14px;
+  color: #aeb5cc;
+}
+
+.highlight {
+  color: #ffde59;
+  font-weight: 800;
+}
+
+.secret-footer {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px dashed rgba(255,255,255,0.2);
+  font-size: 13px;
+  color: #aeb5cc;
+  line-height: 1.5;
+}
+
+/* ================= 대안 2 ================= */
+.custom-modal-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 24px 30px;
+  background: white;
+  border: 1px solid var(--c-cyan);
+  border-radius: 16px;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--c-blue);
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(79,172,254,0.1);
+  transition: all 0.3s ease;
+}
+
+.custom-modal-btn:hover {
+  background: var(--c-blue);
+  color: white;
+  border-color: var(--c-blue);
+  transform: translateY(-2px);
+}
+
+.mock-modal {
+  margin-top: 20px;
+  background: rgba(0,0,0,0.02);
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px dashed #ccc;
+}
+
+.mock-modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.mock-modal-content h4 {
+  margin: 0 0 10px 0;
+  font-size: 22px;
+  color: var(--c-blue);
+}
+
+.mock-modal-content p {
+  color: #666;
+  margin: 0 0 24px 0;
+}
+
+.parts-grid {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.part-item {
+  background: var(--c-light);
+  border: 1px solid var(--c-card-border);
+  border-radius: 12px;
+  padding: 16px;
+  width: 100px;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--c-blue);
+}
+
+.part-item i {
+  font-style: normal;
+  font-size: 32px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.sub-note {
+  font-size: 12px !important;
+  color: #999 !important;
+  margin: 0 !important;
+}
+
+/* ================= 대안 3 ================= */
+.ticker-wrap {
+  width: 100%;
+  overflow: hidden;
+  background: #191919;
+  color: #ccff00; /* 네온 옐로우 느낌 */
+  padding: 16px 0;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  display: flex;
+  white-space: nowrap;
+}
+
+.ticker-move {
+  display: flex;
+  gap: 40px;
+  animation: ticker 15s linear infinite;
+}
+
+.ticker-item {
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+
+@keyframes ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ================= 대안 4 ================= */
+.accordion {
+  border: 1px solid var(--c-card-border);
+  border-radius: 12px;
+  background: white;
+  overflow: hidden;
+}
+
+.accordion input {
+  display: none;
+}
+
+.accordion-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--c-blue);
+  background: var(--c-light);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.accordion-label:hover {
+  background: #eef2ff;
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  background: white;
+}
+
+.accordion input:checked ~ .accordion-content {
+  max-height: 500px;
+}
+
+.acc-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 24px 8px 24px;
+  width: calc(100% - 48px);
+}
+
+.acc-table th, .acc-table td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+
+.acc-table th {
+  background: var(--c-light);
+  color: var(--c-blue);
+  font-weight: 700;
+}
+
+.acc-table td strong {
+  color: #e63946;
+}

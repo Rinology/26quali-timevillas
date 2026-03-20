@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 대안 미리보기</title>
+    <link rel="stylesheet" href="event.css">
+</head>
+<body>
+    <div class="preview-container">
+        <h1>🎁 오프라인 단독 혜택 UI 대안 4가지 🎁</h1>
+        <p class="intro">아래 요소들을 직접 살펴보시고, 메인 홈페이지(index.html)에 적용하고 싶은 가장 마음에 드는 디자인(대안 1~4)을 골라주세요!</p>
+        
+        <!-- ================= 대안 1 ================= -->
+        <section class="alt-section">
+            <h2>대안 1: 시크릿 혜택 카드 (고급형 / 호기심 유발)</h2>
+            <p class="desc">가격표 전체를 나열하지 않고, 핵심적인 파격 혜택만 고급스러운 카드로 만들어 현장 문의를 유도합니다.</p>
+            
+            <div class="secret-card">
+                <div class="secret-header">
+                    <span class="secret-badge">ONLY TIMEVILLAS</span>
+                    <h3>현장 결제 시크릿 베네핏 🤫</h3>
+                </div>
+                <ul class="secret-list">
+                    <li>
+                        <span class="secret-icon">🔋</span>
+                        <div class="secret-text">
+                            <strong>초장거리 배터리 특별 지원</strong>
+                            <span>28.5Ah 등 대용량 배터리 최대 <b class="highlight">31만 원</b> 파격 코딩(할인)</span>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="secret-icon">👶</span>
+                        <div class="secret-text">
+                            <strong>프리미엄 패밀리 세팅</strong>
+                            <span>OGK 정품 유아 안장 전 라인업 단독 <b class="highlight">30~34% 즉시 할인</b></span>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="secret-icon">🪖</span>
+                        <div class="secret-text">
+                            <strong>안전 & 편의 필수품 특가</strong>
+                            <span>어반 헬멧(50%↓), 썬투어 시트포스트 특가 장착 지원</span>
+                        </div>
+                    </li>
+                </ul>
+                <div class="secret-footer">
+                    <p>더 많은 장착 파츠(바구니, 리어랙 등) 라인업이 모두 준비되어 있습니다.<br>현장 매니저에게 조용히 <b>"시크릿 혜택표"</b>를 보여달라고 말씀해 주세요!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= 대안 2 ================= -->
+        <section class="alt-section">
+            <h2>대안 2: 모달(팝업창) 열기 버튼 (깔끔한 정보 제공형)</h2>
+            <p class="desc">평소엔 깔끔한 버튼 하나만 보이고, 혜택이 궁금한 사람만 클릭해서 자세한 모달창(팝업) 정보를 볼 수 있습니다.</p>
+
+            <button class="custom-modal-btn">
+                <span>🛠️ 팝업 단독 커스텀 혜택 보기</span>
+                <span class="arrow">➔</span>
+            </button>
+            <div class="mock-modal">
+                <div class="mock-modal-content">
+                    <h4>원하는 대로, 나만의 퀄리 팩 🚀</h4>
+                    <p>현장에서 원하는 파츠를 고르면 완벽한 세팅과 함께 할인 혜택이 쏟아집니다.</p>
+                    <div class="parts-grid">
+                        <div class="part-item"><i>🔋</i>배터리 팩</div>
+                        <div class="part-item"><i>💺</i>서스펜션</div>
+                        <div class="part-item"><i>👨‍👩‍👧</i>유아 안장</div>
+                        <div class="part-item"><i>🛍️</i>수납(라탄/맥스)</div>
+                    </div>
+                    <p class="sub-note">* 각 품목별 파격 특가 및 할인 코드는 오직 팝업 현장에서 공개됩니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= 대안 3 ================= -->
+        <section class="alt-section">
+            <h2>대안 3: 전광판 티커 애니메이션 (트렌디/힙스터 감성)</h2>
+            <p class="desc">웹페이지 중간을 가로지르며, 홈쇼핑 속보처럼 할인 정보가 계속 흘러가 시선을 완전히 사로잡습니다.</p>
+
+            <div class="ticker-wrap">
+                <div class="ticker-move">
+                    <div class="ticker-item">📣 타임빌라스 팝업 단독 추가 혜택! 대용량 배터리 최대 31만원 파격 지원 ⚡</div>
+                    <div class="ticker-item">프리미엄 OGK 유아 안장 최대 34% 스페셜 특가 ⚡</div>
+                    <div class="ticker-item">필수 안전 헬멧 50% 반값 특별 할인 ⚡</div>
+                    <div class="ticker-item">📣 타임빌라스 팝업 단독 추가 혜택! 대용량 배터리 최대 31만원 파격 지원 ⚡</div>
+                    <div class="ticker-item">프리미엄 OGK 유아 안장 최대 34% 스페셜 특가 ⚡</div>
+                    <div class="ticker-item">필수 안전 헬멧 50% 반값 특별 할인 ⚡</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= 대안 4 ================= -->
+        <section class="alt-section">
+            <h2>대안 4: 스르륵 열리는 아코디언 메뉴 (표 형태/심플형)</h2>
+            <p class="desc">클릭 시에만 혜택 표가 나타납니다. 가격표 등 구체적인 텍스트 요약 리스트를 넣기에 가장 이상적입니다.</p>
+
+            <div class="accordion">
+                <input type="checkbox" id="acc1">
+                <label class="accordion-label" for="acc1">
+                    💡 오프라인 추가 장착 및 혜택 파츠 안내 <span>▾</span>
+                </label>
+                <div class="accordion-content">
+                    <table class="acc-table">
+                        <tr>
+                            <th>장착 품목군</th>
+                            <th>증정 및 시크릿 혜택</th>
+                        </tr>
+                        <tr>
+                            <td>배터리 업그레이드 (28.5Ah, 20Ah 등)</td>
+                            <td>현장 결제 등록 시 특별 <strong>할인 코드 당일 발급</strong></td>
+                        </tr>
+                        <tr>
+                            <td>OGK유아안장 포폴라 계열</td>
+                            <td>매니저에게 비공식 요청 시 현장 <strong>30~34% 즉시 할인</strong></td>
+                        </tr>
+                        <tr>
+                            <td>썬투어 시트포스트 / 헬멧</td>
+                            <td>라이더 맞춤 피팅 세팅 및 <strong>반값(50%) 특가</strong></td>
+                        </tr>
+                        <tr>
+                            <td>바구니 / 짐받이 / 프리미엄 4종 패키지</td>
+                            <td>개별 구매 및 추가 장착 시 단독 패키지 특가 제공</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</body>
+</html>
