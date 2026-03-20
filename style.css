@@ -231,7 +231,7 @@ body::before {
 /* ---- D-Day 카운터 ---- */
 .dday-bar {
   display: flex;
-  gap: 16px;
+  gap: 19px;
   justify-content: center;
   margin: 0 0 16px 0; /* 아래로 튀는 여백 추가 축소 */
   padding-top: 0;
@@ -244,32 +244,32 @@ body::before {
   align-items: center;
   background: rgba(255,255,255,0.75);
   backdrop-filter: blur(10px);
-  border: 3px solid rgba(79,124,255,0.28); /* 테두리 소폭 얇게 */
-  border-radius: 22px; /* 곡률 축소상향 */
-  padding: 22px 31px;
-  min-width: 121px;
+  border: 4px solid rgba(79,124,255,0.28); /* 테두리 소폭 얇게 */
+  border-radius: 26px; /* 곡률 축소상향 */
+  padding: 26px 37px;
+  min-width: 145px;
 }
 
 .dday-num {
   font-family: 'Paperlogy', sans-serif;
-  font-size: 62px;
+  font-size: 74px;
   font-weight: 800;
   color: var(--c-blue);
   line-height: 1;
 }
 
 .dday-label {
-  font-size: 18px;
+  font-size: 22px;
   color: var(--c-muted);
-  margin-top: 7px;
+  margin-top: 8px;
   letter-spacing: 0.08em;
 }
 
 .dday-sep {
-  font-size: 53px;
+  font-size: 64px;
   color: var(--c-blue);
   align-self: center;
-  margin-top: -9px;
+  margin-top: -11px;
   opacity: 0.5;
 }
 
@@ -1150,21 +1150,21 @@ section { margin-top: 48px; }
   .gift-image-card img { height: 200px; }
   .faq-answer-inner { padding: 0 16px 18px 16px; }
   
-  .dday-bar { gap: 8px; }
-  .dday-unit { min-width: 48px; padding: 10px 12px; border-width: 2px; border-radius: 14px; }
-  .dday-num { font-size: 28px; }
-  .dday-sep { font-size: 26px; margin-top: -4px; margin-left: -2px; margin-right: -2px; }
-  .dday-label { font-size: 11px; margin-top: 4px; }
+  .dday-bar { gap: 10px; }
+  .dday-unit { min-width: 58px; padding: 12px 14px; border-width: 2.5px; border-radius: 17px; }
+  .dday-num { font-size: 34px; }
+  .dday-sep { font-size: 31px; margin-top: -5px; margin-left: -2px; margin-right: -2px; }
+  .dday-label { font-size: 13px; margin-top: 5px; }
 }
 
 
 @media (max-width: 480px) {
   .overview-icon { font-size: 18px; } /* 22px -> 18px 모바일 아이콘 축소 */
-  .dday-bar { gap: 6px; }
-  .dday-unit { min-width: 42px; padding: 8px 10px; border-radius: 12px; }
-  .dday-num { font-size: 24px; }
-  .dday-sep { font-size: 22px; margin-top: -2px; margin-left: -3px; margin-right: -3px; }
-  .dday-label { font-size: 10px; margin-top: 3px; }
+  .dday-bar { gap: 7px; }
+  .dday-unit { min-width: 50px; padding: 10px 12px; border-radius: 14px; }
+  .dday-num { font-size: 29px; }
+  .dday-sep { font-size: 26px; margin-top: -2px; margin-left: -3px; margin-right: -3px; }
+  .dday-label { font-size: 12px; margin-top: 4px; }
   
   .meta-row { font-size: 12.5px; padding: 6px 16px; min-width: 90%; justify-content: center; }
   .mascot-img {
@@ -1782,9 +1782,12 @@ section { margin-top: 48px; }
   background: var(--c-white) !important;
 }
 
-/* 펌프 이미지 위치 조정 */
+/* 펌프 이미지 및 헬멧 이미지 위치/크기 조정 */
+.type1-img-scale {
+  transform: scale(0.65) !important;
+}
 .pump-img-scale {
-  transform: scale(1.2);
+  transform: scale(0.6) !important;
 }
 
 .benefit-warning-red {
@@ -1807,7 +1810,7 @@ section { margin-top: 48px; }
 
 .viewer-inner-style {
   width: 100%;
-  height: clamp(380px, 120vw, 540px);
+  height: clamp(400px, 135vw, 640px); /* 기존 380~540px 대비 전체적으로 높이를 키워 이미지 사이즈 상향 */
   background: transparent;
   border: none;
   display: flex;
@@ -1896,6 +1899,8 @@ section { margin-top: 48px; }
   align-items: center;
   position: relative;
   overflow: hidden;
+  padding-top: 32px; /* 스와이프 텍스트 전용 공간 확보 */
+  box-sizing: border-box;
 }
 
 /* 스와이프 기능 대응 */
@@ -1947,7 +1952,7 @@ section { margin-top: 48px; }
 /* 스와이프 힌트 오버레이 */
 .swipe-hint {
   position: absolute;
-  top: 0; /* 표시해주신 상단 영역 빈 공간으로 완전히 밀착 */
+  top: 6px; /* 추가된 패딩 공간 위쪽으로 살짝 여백을 주어 배치 */
   left: 50%;
   transform: translateX(-50%);
   color: rgba(30, 45, 90, 0.4); 

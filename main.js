@@ -285,14 +285,14 @@ const extraData = {
     name: '슬림',
     price: '1,590,000원 ~',
     link: '#',
-    images: ['images/5-2_xtron_slim_b.png'],
+    images: ['images/5-2_xtron_slim_b.png', 'images/5-2_xtron_slim_G.png'],
     benefit: '슬림 컴팩트 전용 리어랙'
   },
   'mini': {
     name: '미니',
     price: '1,730,000원 ~',
     link: '#',
-    images: ['images/5-1_xtron_mini_b.png'],
+    images: ['images/5-1_xtron_mini_b.png', 'images/5-1_xtron_mini_G.png'],
     benefit: '미니/슬림 모델 리어랙 무상 장착'
   },
   'eqneo': {
@@ -327,35 +327,42 @@ const extraData = {
     name: '프로',
     price: '1,690,000원 ~',
     link: '#',
-    images: ['images/8-2_xtron_pro_g.png', 'images/8-1_xtron_pro_s_w.png'],
+    images: ['images/8-2_xtron_pro_g.png', 'images/8-2_xtron_pro_B.png'],
+    benefit: '프리미엄 썬투어 싯포스트 무상 장착'
+  },
+  'xpros': {
+    name: '프로 S',
+    price: '1,690,000원 ~',
+    link: '#',
+    images: ['images/8-1_xtron_pro_s_w.png', 'images/9-1_xtron_proS_b.png', 'images/9-1_xtron_proS_g.png'],
     benefit: '프리미엄 썬투어 싯포스트 무상 장착'
   },
   'xcity': {
     name: '시티',
     price: '추후공개',
     link: '#',
-    images: ['images/8-3_xtron_city_g.png'],
+    images: ['images/8-3_xtron_city_g.png', 'images/8-3_xtron_city_B.png'],
     benefit: ''
   },
   'xtour': {
     name: '투어',
     price: '1,690,000원 ~',
     link: '#',
-    images: ['images/8-4_xtron_tour_g.png'],
+    images: ['images/8-4_xtron_tour_g.png', 'images/8-4_xtron_tour_b.png'],
     benefit: '프리미엄 썬투어 싯포스트 무상 장착'
   },
   'xpromini': {
     name: '프로미니',
     price: '1,390,000원 ~',
     link: '#',
-    images: ['images/8-5_xtron_pro_mini_w.png'],
+    images: ['images/8-5_xtron_pro_mini_w.png', 'images/8-5_xtron_pro_mini_b.png', 'images/8-5_xtron_pro_mini_g.png'],
     benefit: ''
   },
   'eq': {
     name: 'EQ',
     price: '1,330,000원 ~',
     link: '#',
-    images: ['images/8-6_xtron_eq_w.png'],
+    images: ['images/8-6_xtron_eq_w.png', 'images/8-6_xtron_eq_B.png', 'images/8-6_xtron_eq_G.png'],
     benefit: '프론트 바구니 및 포폴라(+모어) 제공'
   }
 };
