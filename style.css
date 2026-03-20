@@ -828,6 +828,7 @@ section { margin-top: 48px; }
   justify-content: flex-start;
   width: max-content;
   margin: 0 auto;
+  padding: 0 45px; /* 양끝 화살표 영역 공간 띄우기 (컴퓨터, 모바일 동일 적용) */
 }
 
 .lineup-pills-wrap .pills-nav-btn {
@@ -849,8 +850,9 @@ section { margin-top: 48px; }
 .lineup-pills-wrap .pills-nav-btn:active {
   transform: translateY(-50%) scale(0.9);
 }
-.lineup-pills-wrap .pills-nav-btn.prev { left: -50px; }
-.lineup-pills-wrap .pills-nav-btn.next { right: -50px; }
+/* 안쪽으로 배치하여 버튼 아래로 탭들이 자연스럽게 숨겨지도록 처리 */
+.lineup-pills-wrap .pills-nav-btn.prev { left: 8px; }
+.lineup-pills-wrap .pills-nav-btn.next { right: 8px; }
 
 .lineup-pill {
   background: var(--c-card); /* rgba(79,124,255,0.1) 대신 흰색 베이스 */

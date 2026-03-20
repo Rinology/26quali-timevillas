@@ -268,7 +268,7 @@ const extraData = {
     name: '프로',
     price: '1,690,000원 ~',
     link: '#',
-    images: ['images/8-2_xtron_pro_g.png', 'images/8-1_xtron_pro_s_w.png', 'images/8-5_xtron_pro_mini_w.png'],
+    images: ['images/8-2_xtron_pro_g.png', 'images/8-1_xtron_pro_s_w.png'],
     benefit: '프리미엄 썬투어 싯포스트 무상 장착'
   },
   'xcity': {
@@ -284,6 +284,13 @@ const extraData = {
     link: '#',
     images: ['images/8-4_xtron_tour_g.png'],
     benefit: '프리미엄 썬투어 싯포스트 무상 장착'
+  },
+  'xpromini': {
+    name: '프로미니',
+    price: '1,390,000원 ~',
+    link: '#',
+    images: ['images/8-5_xtron_pro_mini_w.png'],
+    benefit: ''
   },
   'eq': {
     name: 'EQ',
