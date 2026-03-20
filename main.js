@@ -115,8 +115,7 @@ function updateBikeView() {
   const data = bikeData[currentBikeType];
   const imageSrc = data.images[currentImgIdx];
 
-  // 16인치 등 바퀴가 작은 특정 모델(미니, EQ) 이미지 15% 축소 하드코딩
-  const imgScale = (imageSrc.includes('_mini_') || imageSrc.includes('_eq_')) ? '0.85' : '1.0';
+
 
   let benefitHtml = '';
   if (data.benefit) {
@@ -154,7 +153,7 @@ function updateBikeView() {
       <div class="viewer-stage">
         <!-- 이미지 영역 -->
         <div class="viewer-img-container swipe-container" data-type="bike">
-          <img src="${imageSrc}" alt="${data.name} 이미지 ${currentImgIdx + 1}" class="viewer-bike-img" style="transform: scale(${imgScale});">
+          <img src="${imageSrc}" alt="${data.name} 이미지 ${currentImgIdx + 1}" class="viewer-bike-img">
           ${dotsHtml}
         </div>
         
@@ -168,14 +167,9 @@ function updateBikeView() {
           </a>
           
           <!-- 상세 보기 버튼 -->
-          <a href="${data.link}" target="_blank" rel="noopener noreferrer" class="viewer-detail-btn">
-            <!-- 말풍선 -->
-            <span class="tt-bike">
-              상세페이지로 이동!
-              <span class="tt-arrow"></span>
-            </span>
-            <!-- 문서 아이콘 -->
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          <a href="${data.link}" target="_blank" rel="noopener noreferrer" class="viewer-detail-btn-wide">
+            <span>상세페이지로 이동</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
         
@@ -192,7 +186,7 @@ function updateBikeView() {
       img.getBoundingClientRect(); // 플로우 트리거
       img.src = imageSrc;
       img.alt = `${data.name} 이미지 ${currentImgIdx + 1}`;
-      img.style.transform = `scale(${imgScale})`;
+      img.style.transform = ''; // 인라인 트랜스폼 초기화
       img.style.animation = 'fadeIn 0.4s ease both';
     }
     
@@ -364,8 +358,7 @@ function updateExtraView() {
   const data = extraData[currentExtraType];
   const imageItem = data.images[currentExtraIdx];
 
-  // 16인치 등 바퀴가 작은 특정 모델(미니, EQ) 이미지 15% 축소 하드코딩
-  const imgScale = (imageItem.includes('_mini_') || imageItem.includes('_eq_')) ? '0.85' : '1.0';
+
 
   let benefitHtml = '';
   if (data.benefit) {
@@ -403,7 +396,7 @@ function updateExtraView() {
       <div class="viewer-stage">
         <!-- 이미지 영역 -->
         <div class="viewer-img-container swipe-container" data-type="extra">
-          <img src="${imageItem}" alt="${data.name} 이미지 ${currentExtraIdx + 1}" class="viewer-bike-img" style="transform: scale(${imgScale});">
+          <img src="${imageItem}" alt="${data.name} 이미지 ${currentExtraIdx + 1}" class="viewer-bike-img">
           ${dotsHtml}
         </div>
         
@@ -417,14 +410,9 @@ function updateExtraView() {
           </a>
           
           <!-- 상세 보기 버튼 -->
-          <a href="${data.link}" target="_blank" rel="noopener noreferrer" class="viewer-detail-btn">
-            <!-- 말풍선 -->
-            <span class="tt-extra">
-              상세페이지로 이동!
-              <span class="tt-arrow"></span>
-            </span>
-            <!-- 문서 아이콘 -->
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          <a href="${data.link}" target="_blank" rel="noopener noreferrer" class="viewer-detail-btn-wide">
+            <span>상세페이지로 이동</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
         
@@ -441,7 +429,7 @@ function updateExtraView() {
       img.getBoundingClientRect(); // 플로우 트리거
       img.src = imageItem;
       img.alt = `${data.name} 이미지 ${currentExtraIdx + 1}`;
-      img.style.transform = `scale(${imgScale})`;
+      img.style.transform = ''; // 인라인 트랜스폼 초기화
       img.style.animation = 'fadeIn 0.4s ease both';
     }
 

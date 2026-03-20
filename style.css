@@ -1518,7 +1518,7 @@ section { margin-top: 48px; }
 
 .lucky-gacha-ball {
   position: absolute;
-  width: 45px; height: 45px;
+  width: 28px; height: 28px; /* 32px -> 28px 추가 축소 */
   border-radius: 50%;
   box-shadow: inset -5px -5px 15px rgba(0,0,0,0.3), inset 5px 5px 10px rgba(255,255,255,0.7), 0 5px 10px rgba(0,0,0,0.2);
 }
@@ -1949,12 +1949,14 @@ section { margin-top: 48px; }
   position: relative;
   margin-top: 15px;
   display: flex;
-  flex-wrap: nowrap;
-  gap: 12px;
-  align-items: center;
+  flex-direction: column;
+  align-items: stretch; /* 가격 배지와 상세 버튼 가로 너비 일치 */
   justify-content: center;
+  gap: 10px;
+  width: max-content;   /* 가장 넓은 배지 폭에 맞춤 */
+  margin-left: auto;
+  margin-right: auto;   /* 부모 컨테이너 중앙 정렬 */
   animation: fadeInUp 0.5s 0.2s ease both;
-  width: 100%;
 }
 
 /* 좌/우 화살표 버튼 */
@@ -2014,62 +2016,28 @@ section { margin-top: 48px; }
   color: var(--c-blue);
 }
 
-/* 상세보기 원형 버튼 */
-.viewer-detail-btn {
-  position: relative;
+/* 하단 상세페이지 이동 와이드 버튼 */
+.viewer-detail-btn-wide {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 54px;
-  height: 54px;
-  background: var(--c-blue);
+  gap: 8px;
+  width: 100%;
+  padding: 12px 18px;
+  background: linear-gradient(135deg, var(--c-blue) 0%, #3a62d0 100%);
   color: white;
-  border-radius: 50%;
-  box-shadow: 0 4px 12px rgba(79, 124, 255, 0.3);
-  transition: transform 0.2s ease, background 0.2s ease;
-  flex-shrink: 0;
-  white-space: nowrap;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 100px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(79, 124, 255, 0.25);
+  transition: all 0.2s ease;
+  box-sizing: border-box;
 }
-.viewer-detail-btn:hover {
-  transform: scale(1.05);
+
+.viewer-detail-btn-wide:hover {
+  transform: translateY(-2px);
   background: var(--c-cyan);
-}
-.viewer-detail-btn:hover .tt-bike,
-.viewer-detail-btn:hover .tt-extra {
-  opacity: 1 !important;
-  visibility: visible !important;
-  transform: translateX(-50%) translateY(0) !important;
-}
-
-/* 말풍선 툴팁 컨테이너 */
-.tt-bike, .tt-extra {
-  position: absolute;
-  bottom: calc(100% + 12px);
-  left: 50%;
-  transform: translateX(-50%) translateY(5px);
-  background: #191919;
-  color: #fff;
-  padding: 6px 12px;
-  border-radius: 8px;
-  font-size: 13px;
-  font-weight: 600;
-  white-space: nowrap;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
-  pointer-events: none;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  z-index: 10;
-}
-
-.tt-arrow {
-  display: block;
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  border-width: 6px;
-  border-style: solid;
-  border-color: #191919 transparent transparent transparent;
+  box-shadow: 0 6px 16px rgba(52, 184, 217, 0.3);
 }
 
