@@ -73,31 +73,31 @@ document.querySelectorAll('.card, .overview-item, .max-feature-item, .faq-item, 
 const bikeData = {
   'pro': {
     name: '프로맥스',
-    price: '1,590,000원',
+    price: '1,790,000원',
     link: '#', // 실제 상세페이지 링크로 수정
     images: ['images/1-1_xtron_pro_max_b.png', 'images/1-2_xtron_pro_max_g.png', 'images/1-3_xtron_pro_max_w.png'],
-    benefit: '프로맥스 혜택 상세 내용을 여기에 입력해주세요.'
+    benefit: ''
   },
   'city': {
     name: '시티맥스',
-    price: '1,490,000원',
+    price: '1,790,000원',
     link: '#',
     images: ['images/2-1_xtron_city_max_b.png', 'images/2-2_xtron_city_max_g.png'],
-    benefit: '시티맥스 혜택 상세 내용을 여기에 입력해주세요.'
+    benefit: ''
   },
   'tour': {
     name: '투어맥스',
-    price: '1,490,000원',
+    price: '1,790,000원',
     link: '#',
     images: ['images/3-1_xtron_tour_max_b.png', 'images/3-2_xtron_tour_max_g.png'],
-    benefit: '투어맥스 혜택 상세 내용을 여기에 입력해주세요.'
+    benefit: ''
   },
   'promini': {
     name: '프로미니맥스',
-    price: '예상가 0,000,000원',
+    price: '1,490,000원 ~',
     link: '#',
     images: ['images/4-1_xtron_pro_mini_max_b.png', 'images/4-2_xtron_pro_mini_max_g.png', 'images/4-3_xtron_pro_mini_max_w.png'],
-    benefit: '프로미니맥스 혜택 상세 내용을 여기에 입력해주세요.'
+    benefit: ''
   }
 };
 
@@ -114,6 +114,9 @@ function updateBikeView() {
   const viewer = document.getElementById('bike-viewer');
   const data = bikeData[currentBikeType];
   const imageSrc = data.images[currentImgIdx];
+
+  // 16인치 등 바퀴가 작은 특정 모델(미니, EQ) 이미지 15% 축소 하드코딩
+  const imgScale = (imageSrc.includes('_mini_') || imageSrc.includes('_eq_')) ? '0.85' : '1.0';
 
   let benefitHtml = '';
   if (data.benefit) {
@@ -140,7 +143,7 @@ function updateBikeView() {
     <div style="position: relative; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; border-radius: 18px; padding-bottom: 24px; box-sizing: border-box;">
       <!-- 이미지 영역 -->
       <div style="width: 100%; height: calc(100% - 60px); flex: 1; display: flex; justify-content: center; align-items: center; position: relative; overflow: hidden;">
-        <img src="${imageSrc}" alt="${data.name} 이미지 ${currentImgIdx + 1}" style="width: 100%; height: 100%; object-fit: contain; animation: fadeIn 0.4s ease both; transition: transform 0.3s ease;">
+        <img src="${imageSrc}" alt="${data.name} 이미지 ${currentImgIdx + 1}" style="width: 100%; height: 100%; object-fit: contain; transform: scale(${imgScale}); animation: fadeIn 0.4s ease both; transition: transform 0.3s ease;">
       </div>
       
       <!-- 가격 & 상세 배지 및 네비게이션 버튼 그룹 -->
@@ -215,42 +218,83 @@ function nextBike() {
 // 화면이 불렸을 때 기본적으로 프로 맥스 표시
 window.addEventListener('DOMContentLoaded', () => {
   showBikeImage('pro');
-  showExtraImage('zato'); // 엑스트라 라인업 기본 표시
+  showExtraImage('slim'); // 엑스트라 라인업 기본 표시
 });
 
-/* ---- 엑스트라 라인업 이미지 뷰어 ---- */
 const extraData = {
-  'zato': {
-    name: '자토바이',
-    price: '예상가 0,000,000원',
-    link: '#', // 실제 링크 연결
-    images: ['images/5-1_xtron_mini_b.png', 'images/5-2_xtron_slim_b.png', 'images/5-3_xtron_urban_b.png'],
-    benefit: '자토바이 혜택 상세 내용을 여기에 입력해주세요.'
+  'slim': {
+    name: '슬림',
+    price: '1,590,000원 ~',
+    link: '#',
+    images: ['images/5-2_xtron_slim_b.png'],
+    benefit: '슬림 컴팩트 전용 리어랙'
   },
-  'samryun': {
-    name: '삼륜 모델',
-    price: '예상가 0,000,000원',
+  'mini': {
+    name: '미니',
+    price: '1,730,000원 ~',
+    link: '#',
+    images: ['images/5-1_xtron_mini_b.png'],
+    benefit: '미니/슬림 모델 리어랙 무상 장착'
+  },
+  'eqneo': {
+    name: 'EQ NEO',
+    price: '1,730,000원',
     link: '#',
     images: ['images/6_xtron_neo_be.png'],
-    benefit: '삼륜 모델 혜택 상세 내용을 여기에 입력해주세요.'
+    benefit: '자전거 바구니 무상 장착'
   },
-  'nonfold': {
-    name: '비접이식 라인업',
-    price: '예상가 0,000,000원',
+  'gt': {
+    name: 'GT',
+    price: '1,690,000원 ~',
     link: '#',
-    images: ['images/7-1_xtron_gt_s_b.png', 'images/7-2_xtron_gt_g.png', 'images/7-3_xtron_gt_mini_w.png'],
-    benefit: '비접이식 라인업 혜택 상세 내용을 여기에 입력해주세요.'
+    images: ['images/7-2_xtron_gt_g.png'],
+    benefit: '프리미엄 썬투어 싯포스트 무상 장착'
   },
-  'xseries': {
-    name: 'X시리즈',
-    price: '예상가 0,000,000원',
+  'gtmini': {
+    name: 'GT 미니',
+    price: '1,390,000원 ~',
     link: '#',
-    images: ['images/8-1_xtron_pro_s_w.png', 'images/8-2_xtron_pro_g.png', 'images/8-3_xtron_city_g.png', 'images/8-4_xtron_tour_g.png', 'images/8-5_xtron_pro_mini_w.png', 'images/8-6_xtron_eq_w.png'],
-    benefit: 'X시리즈 혜택 상세 내용을 여기에 입력해주세요.'
+    images: ['images/7-3_xtron_gt_mini_w.png'],
+    benefit: '프리미엄 썬투어 싯포스트 무상 장착'
+  },
+  'gts': {
+    name: 'GT S',
+    price: '2,130,000원 ~',
+    link: '#',
+    images: ['images/7-1_xtron_gt_s_b.png'],
+    benefit: '프리미엄 썬투어 싯포스트 무상 장착'
+  },
+  'xpro': {
+    name: '프로',
+    price: '1,690,000원 ~',
+    link: '#',
+    images: ['images/8-2_xtron_pro_g.png', 'images/8-1_xtron_pro_s_w.png', 'images/8-5_xtron_pro_mini_w.png'],
+    benefit: '프리미엄 썬투어 싯포스트 무상 장착'
+  },
+  'xcity': {
+    name: '시티',
+    price: '추후공개',
+    link: '#',
+    images: ['images/8-3_xtron_city_g.png'],
+    benefit: ''
+  },
+  'xtour': {
+    name: '투어',
+    price: '1,690,000원 ~',
+    link: '#',
+    images: ['images/8-4_xtron_tour_g.png'],
+    benefit: '프리미엄 썬투어 싯포스트 무상 장착'
+  },
+  'eq': {
+    name: 'EQ',
+    price: '1,330,000원 ~',
+    link: '#',
+    images: ['images/8-6_xtron_eq_w.png'],
+    benefit: '프론트 바구니 및 포폴라(+모어) 제공'
   }
 };
 
-let currentExtraType = 'zato';
+let currentExtraType = 'slim';
 let currentExtraIdx = 0;
 
 function showExtraImage(type) {
@@ -264,6 +308,9 @@ function updateExtraView() {
   if (!viewer) return;
   const data = extraData[currentExtraType];
   const imageItem = data.images[currentExtraIdx];
+
+  // 16인치 등 바퀴가 작은 특정 모델(미니, EQ) 이미지 15% 축소 하드코딩
+  const imgScale = (imageItem.includes('_mini_') || imageItem.includes('_eq_')) ? '0.85' : '1.0';
 
   let benefitHtml = '';
   if (data.benefit) {
@@ -290,7 +337,7 @@ function updateExtraView() {
     <div style="position: relative; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; border-radius: 18px; padding-bottom: 24px; box-sizing: border-box;">
       <!-- 이미지 영역 -->
       <div style="width: 100%; height: calc(100% - 60px); flex: 1; display: flex; justify-content: center; align-items: center; position: relative; overflow: hidden;">
-        <img src="${imageItem}" alt="${data.name} 이미지 ${currentExtraIdx + 1}" style="width: 100%; height: 100%; object-fit: contain; animation: fadeIn 0.4s ease both; transition: transform 0.3s ease;">
+        <img src="${imageItem}" alt="${data.name} 이미지 ${currentExtraIdx + 1}" style="width: 100%; height: 100%; object-fit: contain; transform: scale(${imgScale}); animation: fadeIn 0.4s ease both; transition: transform 0.3s ease;">
       </div>
       
       <!-- 가격 & 상세 배지 및 네비게이션 버튼 그룹 -->
@@ -450,9 +497,11 @@ function scrollToTop() {
    럭키 드로우 미니게임
 ============================================ */
 const luckyItems = [
-  { name: '신세계 상품권', chance: 15, icon: '🎫', color: 'var(--c-gold)' },
-  { name: '퀄리스포츠 백', chance: 55, icon: '🎒', color: 'var(--c-blue)' },
-  { name: '브레이크 패드', chance: 30, icon: '🛑', color: 'var(--c-cyan)' }
+  { name: '신세계 상품권', chance: 5, icon: '🎫', color: 'var(--c-gold)' },
+  { name: '퀄리스포츠 백', chance: 15, icon: '🎒', color: 'var(--c-blue)' },
+  { name: '퀄리 티셔츠', chance: 20, icon: '👕', color: '#ff66a3' },
+  { name: '브레이크 패드', chance: 25, icon: '🛑', color: 'var(--c-cyan)' },
+  { name: '퀄리 키링', chance: 35, icon: '🔑', color: '#ffb347' }
 ];
 
 function playLuckyDraw() {
@@ -492,3 +541,30 @@ function closeLuckyModal() {
 function retryLuckyDraw() {
   playLuckyDraw();
 }
+
+/* ============================================
+   이미지 사전 로딩 (Preload) - 성능 최적화
+============================================ */
+window.addEventListener('load', () => {
+  const preloadImages = [];
+  
+  // 맥스 시리즈 이미지 수집
+  if (typeof bikeData !== 'undefined') {
+    Object.values(bikeData).forEach(data => {
+      if (data.images) preloadImages.push(...data.images);
+    });
+  }
+  
+  // 엑스트라 라인업 이미지 수집
+  if (typeof extraData !== 'undefined') {
+    Object.values(extraData).forEach(data => {
+      if (data.images) preloadImages.push(...data.images);
+    });
+  }
+  
+  // Image 객체를 통해 백그라운드 다운로드 유도
+  preloadImages.forEach(src => {
+    const img = new Image();
+    img.src = src;
+  });
+});

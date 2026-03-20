@@ -1159,24 +1159,10 @@ section { margin-top: 48px; }
   .lineup-pills {
     padding: 0 45px; /* 양끝 화살표 영역 공간 띄우기 */
   }
-  /* 모바일 라인업 가로 스크롤 가림막 (가상 요소 사용) */
+  /* 모바일 라인업 가로 스크롤 버튼 주변 하얀색 그림자 가림막 삭제 */
   .lineup-pills-wrap::before,
   .lineup-pills-wrap::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 50px;
-    z-index: 5;
-    pointer-events: none;
-  }
-  .lineup-pills-wrap::before {
-    left: 0;
-    background: linear-gradient(to right, rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 0) 100%);
-  }
-  .lineup-pills-wrap::after {
-    right: 0;
-    background: linear-gradient(to left, rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 0) 100%);
+    display: none;
   }
 
   /* 다시 동그란 버튼 모양으로 복구하되 모바일에서는 안쪽으로 배치 */

@@ -74,8 +74,8 @@
           <span class="chip-icon">🕙</span> 10:30 ~ 22:00
         </div>
         <div class="meta-row" style="position: relative;">
-          <!-- 마스코트 이미지 -->
-          <img src="images/mascot-bike1.png" alt="마스코트" class="mascot-img" style="position: absolute; animation: float 3s ease-in-out infinite; z-index: 10;">
+          <!-- 마스코트 이미지 (주석처리됨) -->
+          <!-- <img src="images/mascot-bike1.png" alt="마스코트" class="mascot-img" style="position: absolute; animation: float 3s ease-in-out infinite; z-index: 10;"> -->
           <span class="chip-icon">📍</span> 수원 타임빌라스 2층 스타벅스 앞
         </div>
       </div>
@@ -263,6 +263,8 @@
             <div class="lucky-tags">
               <span class="l-tag">#신세계상품권</span>
               <span class="l-tag">#퀄리스포츠백</span>
+              <span class="l-tag">#티셔츠</span>
+              <span class="l-tag">#키링</span>
               <span class="l-tag">#브레이크패드</span>
               <span class="l-tag">#할인쿠폰</span>
             </div>
@@ -423,10 +425,16 @@
         
         <div id="extra-pills" class="pills-scroll-container">
           <div class="lineup-pills">
-            <span id="btn-zato" class="lineup-pill active" onclick="showExtraImage('zato')">자토바이 라인업</span>
-            <span id="btn-samryun" class="lineup-pill" onclick="showExtraImage('samryun')">삼륜자전거 라인업</span>
-            <span id="btn-nonfold" class="lineup-pill" onclick="showExtraImage('nonfold')">비접이식 라인업</span>
-            <span id="btn-xseries" class="lineup-pill" onclick="showExtraImage('xseries')">X시리즈</span>
+            <span id="btn-slim" class="lineup-pill active" onclick="showExtraImage('slim')">슬림</span>
+            <span id="btn-mini" class="lineup-pill" onclick="showExtraImage('mini')">미니</span>
+            <span id="btn-eqneo" class="lineup-pill" onclick="showExtraImage('eqneo')">EQ NEO</span>
+            <span id="btn-gt" class="lineup-pill" onclick="showExtraImage('gt')">GT</span>
+            <span id="btn-gtmini" class="lineup-pill" onclick="showExtraImage('gtmini')">GT 미니</span>
+            <span id="btn-gts" class="lineup-pill" onclick="showExtraImage('gts')">GT S</span>
+            <span id="btn-xpro" class="lineup-pill" onclick="showExtraImage('xpro')">프로</span>
+            <span id="btn-xcity" class="lineup-pill" onclick="showExtraImage('xcity')">시티</span>
+            <span id="btn-xtour" class="lineup-pill" onclick="showExtraImage('xtour')">투어</span>
+            <span id="btn-eq" class="lineup-pill" onclick="showExtraImage('eq')">EQ</span>
           </div>
         </div>
 
@@ -466,6 +474,7 @@
         </div>
       </div>
 
+      <!-- 엘리베이터 QnA 주석 처리
       <div class="faq-item">
         <button class="faq-trigger" onclick="toggleFaq(this)">
           <span class="faq-q-badge">Q</span>
@@ -475,6 +484,47 @@
         <div class="faq-answer">
           <div class="faq-answer-inner">
             네! 대부분의 일반적인 엘리베이터에 <strong>대각선 방향으로 세워</strong> 실을 수 있습니다. 다소 좁더라도 뒷브레이크를 잡고 자전거를 수직으로 살짝 일으켜 세우면 무리 없이 들어갑니다.
+          </div>
+        </div>
+      </div>
+      -->
+
+      <!-- 신규 QnA 3종 추가 -->
+      <div class="faq-item">
+        <button class="faq-trigger" onclick="toggleFaq(this)">
+          <span class="faq-q-badge">Q</span>
+          <h4>주행거리와 배터리 완충시간?</h4>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            (48v 20ah기준) 최대 150km 주행 가능하며, 방전 상태에서 완충까지는 약 7시간 소요됩니다.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-trigger" onclick="toggleFaq(this)">
+          <span class="faq-q-badge">Q</span>
+          <h4>A/S는 어떻게 받나요?</h4>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            팝업스토어에서 구매시 본사 카카오톡 채널로 문의를 남겨주시면 AS를 받아보실 수 있도록 안내 도와드리고 있습니다.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-trigger" onclick="toggleFaq(this)">
+          <span class="faq-q-badge">Q</span>
+          <h4>배터리는 안전한가요?</h4>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            KC 인증은 물론, 삼성 / LG 배터리셀을 사용하여 안정성과 품질을 모두 확보했습니다.
           </div>
         </div>
       </div>
