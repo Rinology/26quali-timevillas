@@ -138,7 +138,10 @@ function updateBikeView() {
   }
 
   let dotsHtml = '';
+  let swipeHintHtml = '';
   if (data.images.length > 1) {
+    swipeHintHtml = `
+      <div class="swipe-hint">좌우로 슬라이드</div>`;
     dotsHtml = '<div class="viewer-dots">';
     data.images.forEach((imgUrl, idx) => {
       dotsHtml += `<div class="viewer-dot ${idx === currentImgIdx ? 'active' : ''}"></div>`;
@@ -153,6 +156,7 @@ function updateBikeView() {
       <div class="viewer-stage">
         <!-- 이미지 영역 -->
         <div class="viewer-img-container swipe-container" data-type="bike">
+          ${swipeHintHtml}
           <img src="${imageSrc}" alt="${data.name} 이미지 ${currentImgIdx + 1}" class="viewer-bike-img">
           ${dotsHtml}
         </div>
@@ -190,6 +194,19 @@ function updateBikeView() {
       img.style.animation = 'fadeIn 0.4s ease both';
     }
     
+    // 스와이프 힌트 업데이트
+    let hintEl = stage.querySelector('.swipe-hint');
+    if (data.images.length > 1) {
+      if (!hintEl) {
+        hintEl = document.createElement('div');
+        hintEl.className = 'swipe-hint';
+        hintEl.innerHTML = '좌우로 슬라이드';
+        stage.querySelector('.viewer-img-container').prepend(hintEl);
+      }
+    } else if (hintEl) {
+      hintEl.remove();
+    }
+    
     // 도트 업데이트
     let dotsContainer = stage.querySelector('.viewer-dots');
     if (data.images.length > 1) {
@@ -215,7 +232,7 @@ function updateBikeView() {
       if (valEl) valEl.textContent = data.price;
     }
     
-    const detailBtn = stage.querySelector('.viewer-detail-btn');
+    const detailBtn = stage.querySelector('.viewer-detail-btn-wide');
     if (detailBtn) detailBtn.href = data.link;
 
     const oldBenefit = stage.querySelector('.benefit-alert-box');
@@ -381,7 +398,10 @@ function updateExtraView() {
   }
 
   let dotsHtml = '';
+  let swipeHintHtml = '';
   if (data.images.length > 1) {
+    swipeHintHtml = `
+      <div class="swipe-hint">좌우로 슬라이드</div>`;
     dotsHtml = '<div class="viewer-dots">';
     data.images.forEach((imgUrl, idx) => {
       dotsHtml += `<div class="viewer-dot ${idx === currentExtraIdx ? 'active' : ''}"></div>`;
@@ -396,6 +416,7 @@ function updateExtraView() {
       <div class="viewer-stage">
         <!-- 이미지 영역 -->
         <div class="viewer-img-container swipe-container" data-type="extra">
+          ${swipeHintHtml}
           <img src="${imageItem}" alt="${data.name} 이미지 ${currentExtraIdx + 1}" class="viewer-bike-img">
           ${dotsHtml}
         </div>
@@ -433,6 +454,19 @@ function updateExtraView() {
       img.style.animation = 'fadeIn 0.4s ease both';
     }
 
+    // 스와이프 힌트 업데이트
+    let hintEl = stage.querySelector('.swipe-hint');
+    if (data.images.length > 1) {
+      if (!hintEl) {
+        hintEl = document.createElement('div');
+        hintEl.className = 'swipe-hint';
+        hintEl.innerHTML = '좌우로 슬라이드';
+        stage.querySelector('.viewer-img-container').prepend(hintEl);
+      }
+    } else if (hintEl) {
+      hintEl.remove();
+    }
+
     // 도트 업데이트
     let dotsContainer = stage.querySelector('.viewer-dots');
     if (data.images.length > 1) {
@@ -458,7 +492,7 @@ function updateExtraView() {
       if (valEl) valEl.textContent = data.price;
     }
     
-    const detailBtn = stage.querySelector('.viewer-detail-btn');
+    const detailBtn = stage.querySelector('.viewer-detail-btn-wide');
     if (detailBtn) detailBtn.href = data.link;
 
     const oldBenefit = stage.querySelector('.benefit-alert-box');

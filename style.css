@@ -1944,6 +1944,30 @@ section { margin-top: 48px; }
   transition: transform 0.3s ease;
 }
 
+/* 스와이프 힌트 오버레이 */
+.swipe-hint {
+  position: absolute;
+  top: 0; /* 표시해주신 상단 영역 빈 공간으로 완전히 밀착 */
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(30, 45, 90, 0.4); 
+  font-size: 14px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 10;
+  pointer-events: none;
+  animation: pulseHint 2.5s infinite;
+  text-shadow: 0 1px 4px rgba(255, 255, 255, 0.8); /* 이미지와 겹쳐도 텍스트가 잘 보이도록 흰색 글로우 추가 */
+}
+
+@keyframes pulseHint {
+  0% { opacity: 0.6; transform: translateX(-50%) scale(1); }
+  50% { opacity: 1; transform: translateX(-50%) scale(1.03); }
+  100% { opacity: 0.6; transform: translateX(-50%) scale(1); }
+}
+
 /* 네비게이션 그룹 영역 */
 .viewer-nav-group {
   position: relative;
@@ -1991,11 +2015,14 @@ section { margin-top: 48px; }
   border: 1px solid rgba(79, 124, 255, 0.15);
   display: flex;
   align-items: center;
+  justify-content: center; /* 텍스트 묶음을 중앙에 고정 */
   gap: 12px;
   text-decoration: none;
   color: inherit;
   transition: all 0.2s ease;
-  white-space: nowrap; /* Explicitly targeted */
+  white-space: nowrap;
+  min-width: clamp(280px, 85vw, 340px); /* 가장 긴 프로미니맥스 텍스트에 기준을 맞춘 고정 너비 */
+  box-sizing: border-box;
 }
 
 .viewer-price-name {
