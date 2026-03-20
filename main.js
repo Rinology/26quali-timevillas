@@ -75,25 +75,29 @@ const bikeData = {
     name: '프로맥스',
     price: '1,590,000원',
     link: '#', // 실제 상세페이지 링크로 수정
-    images: ['images/1-1_xtron_pro_max_b.png', 'images/1-2_xtron_pro_max_g.png', 'images/1-3_xtron_pro_max_w.png']
+    images: ['images/1-1_xtron_pro_max_b.png', 'images/1-2_xtron_pro_max_g.png', 'images/1-3_xtron_pro_max_w.png'],
+    benefit: '프로맥스 혜택 상세 내용을 여기에 입력해주세요.'
   },
   'city': {
     name: '시티맥스',
     price: '1,490,000원',
     link: '#',
-    images: ['images/2-1_xtron_city_max_b.png', 'images/2-2_xtron_city_max_g.png']
+    images: ['images/2-1_xtron_city_max_b.png', 'images/2-2_xtron_city_max_g.png'],
+    benefit: '시티맥스 혜택 상세 내용을 여기에 입력해주세요.'
   },
   'tour': {
     name: '투어맥스',
     price: '1,490,000원',
     link: '#',
-    images: ['images/3-1_xtron_tour_max_b.png', 'images/3-2_xtron_tour_max_g.png']
+    images: ['images/3-1_xtron_tour_max_b.png', 'images/3-2_xtron_tour_max_g.png'],
+    benefit: '투어맥스 혜택 상세 내용을 여기에 입력해주세요.'
   },
   'promini': {
     name: '프로미니맥스',
     price: '예상가 0,000,000원',
     link: '#',
-    images: ['images/4-1_xtron_pro_mini_max_b.png', 'images/4-2_xtron_pro_mini_max_g.png', 'images/4-3_xtron_pro_mini_max_w.png']
+    images: ['images/4-1_xtron_pro_mini_max_b.png', 'images/4-2_xtron_pro_mini_max_g.png', 'images/4-3_xtron_pro_mini_max_w.png'],
+    benefit: '프로미니맥스 혜택 상세 내용을 여기에 입력해주세요.'
   }
 };
 
@@ -110,6 +114,17 @@ function updateBikeView() {
   const viewer = document.getElementById('bike-viewer');
   const data = bikeData[currentBikeType];
   const imageSrc = data.images[currentImgIdx];
+
+  let benefitHtml = '';
+  if (data.benefit) {
+    benefitHtml = `
+      <!-- 프리미엄 혜택 알림 영역 (베네핏 01 연계) -->
+      <div style="margin-top: 20px; padding: 12px 24px; background: rgba(255, 77, 136, 0.08); border: 1px solid rgba(255, 77, 136, 0.3); border-radius: 100px; color: #ff4d88; font-weight: 700; font-size: 15px; display: inline-flex; justify-content: center; align-items: center; gap: 8px; animation: fadeInUp 0.5s 0.3s ease both; text-align: center;">
+        <span style="font-size: 18px;">🎁</span>
+        <span>${data.benefit}</span>
+      </div>
+    `;
+  }
 
   // 라인업 버튼 활성화 상태 업데이트
   document.querySelectorAll('.lineup-pill').forEach(btn => {
@@ -160,6 +175,9 @@ function updateBikeView() {
         </button>
 
       </div>
+      
+      ${benefitHtml}
+      
     </div>
   `;
 }
@@ -206,25 +224,29 @@ const extraData = {
     name: '자토바이',
     price: '예상가 0,000,000원',
     link: '#', // 실제 링크 연결
-    images: ['images/5-1_xtron_mini_b.png', 'images/5-2_xtron_slim_b.png', 'images/5-3_xtron_urban_b.png']
+    images: ['images/5-1_xtron_mini_b.png', 'images/5-2_xtron_slim_b.png', 'images/5-3_xtron_urban_b.png'],
+    benefit: '자토바이 혜택 상세 내용을 여기에 입력해주세요.'
   },
   'samryun': {
     name: '삼륜 모델',
     price: '예상가 0,000,000원',
     link: '#',
-    images: ['images/6_xtron_neo_be.png']
+    images: ['images/6_xtron_neo_be.png'],
+    benefit: '삼륜 모델 혜택 상세 내용을 여기에 입력해주세요.'
   },
   'nonfold': {
     name: '비접이식 라인업',
     price: '예상가 0,000,000원',
     link: '#',
-    images: ['images/7-1_xtron_gt_s_b.png', 'images/7-2_xtron_gt_g.png', 'images/7-3_xtron_gt_mini_w.png']
+    images: ['images/7-1_xtron_gt_s_b.png', 'images/7-2_xtron_gt_g.png', 'images/7-3_xtron_gt_mini_w.png'],
+    benefit: '비접이식 라인업 혜택 상세 내용을 여기에 입력해주세요.'
   },
   'xseries': {
     name: 'X시리즈',
     price: '예상가 0,000,000원',
     link: '#',
-    images: ['images/8-1_xtron_pro_s_w.png', 'images/8-2_xtron_pro_g.png', 'images/8-3_xtron_city_g.png', 'images/8-4_xtron_tour_g.png', 'images/8-5_xtron_pro_mini_w.png', 'images/8-6_xtron_eq_w.png']
+    images: ['images/8-1_xtron_pro_s_w.png', 'images/8-2_xtron_pro_g.png', 'images/8-3_xtron_city_g.png', 'images/8-4_xtron_tour_g.png', 'images/8-5_xtron_pro_mini_w.png', 'images/8-6_xtron_eq_w.png'],
+    benefit: 'X시리즈 혜택 상세 내용을 여기에 입력해주세요.'
   }
 };
 
@@ -242,6 +264,17 @@ function updateExtraView() {
   if (!viewer) return;
   const data = extraData[currentExtraType];
   const imageItem = data.images[currentExtraIdx];
+
+  let benefitHtml = '';
+  if (data.benefit) {
+    benefitHtml = `
+      <!-- 프리미엄 혜택 알림 영역 (베네핏 01 연계) -->
+      <div style="margin-top: 20px; padding: 12px 24px; background: rgba(255, 77, 136, 0.08); border: 1px solid rgba(255, 77, 136, 0.3); border-radius: 100px; color: #ff4d88; font-weight: 700; font-size: 15px; display: inline-flex; justify-content: center; align-items: center; gap: 8px; animation: fadeInUp 0.5s 0.3s ease both; text-align: center;">
+        <span style="font-size: 18px;">🎁</span>
+        <span>${data.benefit}</span>
+      </div>
+    `;
+  }
 
   // 라인업 버튼 활성화 상태 업데이트 (extra 라인업)
   document.querySelectorAll('#extra-series .lineup-pill').forEach(btn => {
@@ -292,6 +325,9 @@ function updateExtraView() {
         </button>
 
       </div>
+      
+      ${benefitHtml}
+      
     </div>
   `;
 }
