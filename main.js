@@ -124,21 +124,27 @@ function updateBikeView() {
   viewer.innerHTML = `
     <div style="position: relative; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; border-radius: 18px; padding-bottom: 24px; box-sizing: border-box;">
       <!-- 이미지 영역 -->
-      <a href="${data.link}" target="_blank" rel="noopener noreferrer" style="width: 100%; height: calc(100% - 60px); flex: 1; display: flex; justify-content: center; align-items: center; position: relative; overflow: hidden; cursor: pointer;">
+      <div style="width: 100%; height: calc(100% - 60px); flex: 1; display: flex; justify-content: center; align-items: center; position: relative; overflow: hidden;">
         <img src="${imageSrc}" alt="${data.name} 이미지 ${currentImgIdx + 1}" style="width: 100%; height: 100%; object-fit: contain; animation: fadeIn 0.4s ease both; transition: transform 0.3s ease;">
-      </a>
+      </div>
       
-      <!-- 가격 & 상세이동 배지 그룹 -->
-      <div style="position: relative; margin-top: 15px; display: flex; gap: 8px; animation: fadeInUp 0.5s 0.2s ease both; white-space: nowrap; align-items: center;">
+      <!-- 가격 & 상세 배지 및 네비게이션 버튼 그룹 -->
+      <div style="position: relative; margin-top: 15px; display: flex; gap: 12px; align-items: center; justify-content: center; animation: fadeInUp 0.5s 0.2s ease both; width: 100%;">
+        
+        <!-- 이전 버튼 -->
+        <button onclick="event.stopPropagation(); prevBike();" aria-label="이전 자전거" style="width: 48px; height: 48px; border-radius: 50%; background: white; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 4px 12px rgba(0,0,0,0.05); display: flex; justify-content: center; align-items: center; color: var(--c-blue); cursor: pointer; transition: all 0.2s ease; flex-shrink: 0;" onmouseover="this.style.background='var(--c-light)'; this.style.transform='scale(1.05)';" onmouseout="this.style.background='white'; this.style.transform='scale(1)';">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+
         <!-- 가격 배지 -->
-        <a href="${data.link}" target="_blank" rel="noopener noreferrer" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); padding: 14px 28px 14px 36px; border-radius: 100px; box-shadow: 0 4px 16px rgba(0,0,0,0.06); border: 1px solid rgba(79, 124, 255, 0.15); display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; transition: all 0.2s ease;">
+        <a href="${data.link}" target="_blank" rel="noopener noreferrer" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); padding: 14px 28px 14px 36px; border-radius: 100px; box-shadow: 0 4px 16px rgba(0,0,0,0.06); border: 1px solid rgba(79, 124, 255, 0.15); display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; transition: all 0.2s ease; white-space: nowrap;">
           <span style="font-size: 16px; font-weight: 800; color: var(--c-cyan);">${data.name}</span>
           <span style="width: 1px; height: 14px; background: rgba(30, 45, 90, 0.2);"></span>
           <span style="font-size: 20px; font-weight: 900; color: var(--c-blue);">${data.price}</span>
         </a>
         
         <!-- 상세 보기 버튼 -->
-        <a href="${data.link}" target="_blank" rel="noopener noreferrer" style="position: relative; display: flex; align-items: center; justify-content: center; width: 54px; height: 54px; background: var(--c-blue); color: white; border-radius: 50%; box-shadow: 0 4px 12px rgba(79, 124, 255, 0.3); transition: transform 0.2s ease, background 0.2s ease;" onmouseover="this.style.transform='scale(1.05)'; this.style.background='var(--c-cyan)'; this.querySelector('.tt-bike').style.opacity='1'; this.querySelector('.tt-bike').style.visibility='visible'; this.querySelector('.tt-bike').style.transform='translateX(-50%) translateY(0)';" onmouseout="this.style.transform='scale(1)'; this.style.background='var(--c-blue)'; this.querySelector('.tt-bike').style.opacity='0'; this.querySelector('.tt-bike').style.visibility='hidden'; this.querySelector('.tt-bike').style.transform='translateX(-50%) translateY(5px)';">
+        <a href="${data.link}" target="_blank" rel="noopener noreferrer" style="position: relative; display: flex; align-items: center; justify-content: center; width: 54px; height: 54px; background: var(--c-blue); color: white; border-radius: 50%; box-shadow: 0 4px 12px rgba(79, 124, 255, 0.3); transition: transform 0.2s ease, background 0.2s ease; flex-shrink: 0;" onmouseover="this.style.transform='scale(1.05)'; this.style.background='var(--c-cyan)'; this.querySelector('.tt-bike').style.opacity='1'; this.querySelector('.tt-bike').style.visibility='visible'; this.querySelector('.tt-bike').style.transform='translateX(-50%) translateY(0)';" onmouseout="this.style.transform='scale(1)'; this.style.background='var(--c-blue)'; this.querySelector('.tt-bike').style.opacity='0'; this.querySelector('.tt-bike').style.visibility='hidden'; this.querySelector('.tt-bike').style.transform='translateX(-50%) translateY(5px)';">
           <!-- 말풍선 -->
           <span class="tt-bike" style="position: absolute; bottom: calc(100% + 12px); left: 50%; transform: translateX(-50%) translateY(5px); background: #191919; color: #fff; padding: 6px 12px; border-radius: 8px; font-size: 13px; font-weight: 600; white-space: nowrap; opacity: 0; visibility: hidden; transition: opacity 0.2s, transform 0.2s, visibility 0.2s; pointer-events: none; box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 10;">
             상세페이지로 이동!
@@ -147,6 +153,12 @@ function updateBikeView() {
           <!-- 문서 아이콘 -->
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
         </a>
+
+        <!-- 다음 버튼 -->
+        <button onclick="event.stopPropagation(); nextBike();" aria-label="다음 자전거" style="width: 48px; height: 48px; border-radius: 50%; background: white; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 4px 12px rgba(0,0,0,0.05); display: flex; justify-content: center; align-items: center; color: var(--c-blue); cursor: pointer; transition: all 0.2s ease; flex-shrink: 0;" onmouseover="this.style.background='var(--c-light)'; this.style.transform='scale(1.05)';" onmouseout="this.style.background='white'; this.style.transform='scale(1)';">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+
       </div>
     </div>
   `;
@@ -243,22 +255,28 @@ function updateExtraView() {
   // 뷰어 내용 업데이트: 컨테이너와 이미지의 높이 비율을 100%로 강제하여 벗어나지 않도록 방지
   viewer.innerHTML = `
     <div style="position: relative; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; border-radius: 18px; padding-bottom: 24px; box-sizing: border-box;">
-      <!-- 이미지 표시 영역 -->
-      <a href="${data.link}" target="_blank" rel="noopener noreferrer" style="width: 100%; height: calc(100% - 60px); flex: 1; display: flex; justify-content: center; align-items: center; position: relative; overflow: hidden; cursor: pointer;">
+      <!-- 이미지 영역 -->
+      <div style="width: 100%; height: calc(100% - 60px); flex: 1; display: flex; justify-content: center; align-items: center; position: relative; overflow: hidden;">
         <img src="${imageItem}" alt="${data.name} 이미지 ${currentExtraIdx + 1}" style="width: 100%; height: 100%; object-fit: contain; animation: fadeIn 0.4s ease both; transition: transform 0.3s ease;">
-      </a>
+      </div>
       
-      <!-- 가격 & 상세이동 배지 그룹 -->
-      <div style="position: relative; margin-top: 15px; display: flex; gap: 8px; animation: fadeInUp 0.5s 0.2s ease both; white-space: nowrap; align-items: center;">
+      <!-- 가격 & 상세 배지 및 네비게이션 버튼 그룹 -->
+      <div style="position: relative; margin-top: 15px; display: flex; gap: 12px; align-items: center; justify-content: center; animation: fadeInUp 0.5s 0.2s ease both; width: 100%;">
+        
+        <!-- 이전 버튼 -->
+        <button onclick="event.stopPropagation(); prevExtra();" aria-label="이전 모델" style="width: 48px; height: 48px; border-radius: 50%; background: white; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 4px 12px rgba(0,0,0,0.05); display: flex; justify-content: center; align-items: center; color: var(--c-blue); cursor: pointer; transition: all 0.2s ease; flex-shrink: 0;" onmouseover="this.style.background='var(--c-light)'; this.style.transform='scale(1.05)';" onmouseout="this.style.background='white'; this.style.transform='scale(1)';">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+
         <!-- 가격 배지 -->
-        <a href="${data.link}" target="_blank" rel="noopener noreferrer" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); padding: 14px 28px 14px 36px; border-radius: 100px; box-shadow: 0 4px 16px rgba(0,0,0,0.06); border: 1px solid rgba(79, 124, 255, 0.15); display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; transition: all 0.2s ease;">
+        <a href="${data.link}" target="_blank" rel="noopener noreferrer" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); padding: 14px 28px 14px 36px; border-radius: 100px; box-shadow: 0 4px 16px rgba(0,0,0,0.06); border: 1px solid rgba(79, 124, 255, 0.15); display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; transition: all 0.2s ease; white-space: nowrap;">
           <span style="font-size: 16px; font-weight: 800; color: var(--c-cyan);">${data.name}</span>
           <span style="width: 1px; height: 14px; background: rgba(30, 45, 90, 0.2);"></span>
           <span style="font-size: 20px; font-weight: 900; color: var(--c-blue);">${data.price}</span>
         </a>
         
         <!-- 상세 보기 버튼 -->
-        <a href="${data.link}" target="_blank" rel="noopener noreferrer" style="position: relative; display: flex; align-items: center; justify-content: center; width: 54px; height: 54px; background: var(--c-blue); color: white; border-radius: 50%; box-shadow: 0 4px 12px rgba(79, 124, 255, 0.3); transition: transform 0.2s ease, background 0.2s ease;" onmouseover="this.style.transform='scale(1.05)'; this.style.background='var(--c-cyan)'; this.querySelector('.tt-extra').style.opacity='1'; this.querySelector('.tt-extra').style.visibility='visible'; this.querySelector('.tt-extra').style.transform='translateX(-50%) translateY(0)';" onmouseout="this.style.transform='scale(1)'; this.style.background='var(--c-blue)'; this.querySelector('.tt-extra').style.opacity='0'; this.querySelector('.tt-extra').style.visibility='hidden'; this.querySelector('.tt-extra').style.transform='translateX(-50%) translateY(5px)';">
+        <a href="${data.link}" target="_blank" rel="noopener noreferrer" style="position: relative; display: flex; align-items: center; justify-content: center; width: 54px; height: 54px; background: var(--c-blue); color: white; border-radius: 50%; box-shadow: 0 4px 12px rgba(79, 124, 255, 0.3); transition: transform 0.2s ease, background 0.2s ease; flex-shrink: 0;" onmouseover="this.style.transform='scale(1.05)'; this.style.background='var(--c-cyan)'; this.querySelector('.tt-extra').style.opacity='1'; this.querySelector('.tt-extra').style.visibility='visible'; this.querySelector('.tt-extra').style.transform='translateX(-50%) translateY(0)';" onmouseout="this.style.transform='scale(1)'; this.style.background='var(--c-blue)'; this.querySelector('.tt-extra').style.opacity='0'; this.querySelector('.tt-extra').style.visibility='hidden'; this.querySelector('.tt-extra').style.transform='translateX(-50%) translateY(5px)';">
           <!-- 말풍선 -->
           <span class="tt-extra" style="position: absolute; bottom: calc(100% + 12px); left: 50%; transform: translateX(-50%) translateY(5px); background: #191919; color: #fff; padding: 6px 12px; border-radius: 8px; font-size: 13px; font-weight: 600; white-space: nowrap; opacity: 0; visibility: hidden; transition: opacity 0.2s, transform 0.2s, visibility 0.2s; pointer-events: none; box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 10;">
             상세페이지로 이동!
@@ -267,6 +285,12 @@ function updateExtraView() {
           <!-- 문서 아이콘 -->
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
         </a>
+
+        <!-- 다음 버튼 -->
+        <button onclick="event.stopPropagation(); nextExtra();" aria-label="다음 모델" style="width: 48px; height: 48px; border-radius: 50%; background: white; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 4px 12px rgba(0,0,0,0.05); display: flex; justify-content: center; align-items: center; color: var(--c-blue); cursor: pointer; transition: all 0.2s ease; flex-shrink: 0;" onmouseover="this.style.background='var(--c-light)'; this.style.transform='scale(1.05)';" onmouseout="this.style.background='white'; this.style.transform='scale(1)';">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+
       </div>
     </div>
   `;
