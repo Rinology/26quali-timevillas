@@ -268,8 +268,49 @@
           </div>
           <div class="lucky-image-wrapper" onclick="playLuckyDraw()">
             <div class="click-badge">👇 클릭해서 뽑기!</div>
-            <!-- 둥둥 떠다니는 애니메이션 추가된 박스 -->
-            <img src="images/lucky_box.png" alt="럭키 드로우 아크릴 상자" class="lucky-box-img">
+            <!-- 둥둥 떠다니는 애니메이션 유지를 위한 래퍼 -->
+            <div class="lucky-box-and-balls">
+              <div class="lucky-balls-container">
+                <!-- 원래 내부 캡슐들 -->
+                <div class="lucky-gacha-ball b1 red"></div>
+                <div class="lucky-gacha-ball b2 blue"></div>
+                <div class="lucky-gacha-ball b3 yellow"></div>
+                <div class="lucky-gacha-ball b4 green"></div>
+                <div class="lucky-gacha-ball b5 purple"></div>
+                <div class="lucky-gacha-ball b6 purple"></div>
+                <div class="lucky-gacha-ball b7 red"></div>
+                <div class="lucky-gacha-ball b8 blue"></div>
+                <div class="lucky-gacha-ball b9 yellow"></div>
+                <div class="lucky-gacha-ball b10 green"></div>
+                <div class="lucky-gacha-ball b11 red"></div>
+                <div class="lucky-gacha-ball b12 purple"></div>
+                <div class="lucky-gacha-ball b13 yellow"></div>
+                <div class="lucky-gacha-ball b14 blue"></div>
+                <div class="lucky-gacha-ball b15 green"></div>
+                
+                <!-- 추가된 내부 캡슐들 (상단까지 꽉꽉) -->
+                <div class="lucky-gacha-ball b19 red"></div>
+                <div class="lucky-gacha-ball b20 blue"></div>
+                <div class="lucky-gacha-ball b21 yellow"></div>
+                <div class="lucky-gacha-ball b22 green"></div>
+                <div class="lucky-gacha-ball b23 purple"></div>
+                <div class="lucky-gacha-ball b24 purple"></div>
+                <div class="lucky-gacha-ball b25 red"></div>
+                <div class="lucky-gacha-ball b26 blue"></div>
+                <div class="lucky-gacha-ball b27 yellow"></div>
+                <div class="lucky-gacha-ball b28 green"></div>
+                <div class="lucky-gacha-ball b29 red"></div>
+                <div class="lucky-gacha-ball b30 purple"></div>
+              </div>
+              <img src="images/front_lucky_box.png" alt="럭키 드로우 아크릴 상자" class="lucky-box-img">
+              
+              <!-- 상자 외부로 굴러나온 캡슐들 -->
+              <div class="lucky-gacha-ball b16 red out-box"></div>
+              <div class="lucky-gacha-ball b17 yellow out-box"></div>
+              <div class="lucky-gacha-ball b18 green out-box"></div>
+              <div class="lucky-gacha-ball b31 blue out-box"></div>
+              <div class="lucky-gacha-ball b32 purple out-box"></div>
+            </div>
           </div>
         </div>
       </div>

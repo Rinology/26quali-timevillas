@@ -1474,18 +1474,94 @@ section { margin-top: 48px; }
   cursor: pointer;
 }
 
+.lucky-box-and-balls {
+  position: relative;
+  width: 100%;
+  animation: float 4s ease-in-out infinite;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 20px 30px rgba(244,114,182,0.15));
+}
+.lucky-image-wrapper:hover .lucky-box-and-balls {
+  transform: scale(1.05);
+  filter: drop-shadow(0 25px 40px rgba(244,114,182,0.25));
+}
+
 .lucky-box-img {
   width: 100%;
   height: auto;
   object-fit: contain;
-  animation: float 4s ease-in-out infinite;
-  filter: drop-shadow(0 20px 30px rgba(244,114,182,0.15));
-  transition: transform 0.3s ease;
+  position: relative;
+  z-index: 5;
 }
-.lucky-image-wrapper:hover .lucky-box-img {
-  transform: scale(1.05);
-  filter: drop-shadow(0 25px 40px rgba(244,114,182,0.25));
+
+.lucky-balls-container {
+  position: absolute;
+  top: 55%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%; height: 60%;
+  z-index: 1; /* Below the box front if it's transparent */
+  pointer-events: none;
 }
+
+.lucky-gacha-ball {
+  position: absolute;
+  width: 45px; height: 45px;
+  border-radius: 50%;
+  box-shadow: inset -5px -5px 15px rgba(0,0,0,0.3), inset 5px 5px 10px rgba(255,255,255,0.7), 0 5px 10px rgba(0,0,0,0.2);
+}
+
+.lucky-gacha-ball.red { background: radial-gradient(circle at 30% 30%, #ff6b6b, #c0392b); }
+.lucky-gacha-ball.blue { background: radial-gradient(circle at 30% 30%, #4facfe, #00f2fe); }
+.lucky-gacha-ball.yellow { background: radial-gradient(circle at 30% 30%, #ffe259, #ffa751); z-index: 2; }
+.lucky-gacha-ball.green { background: radial-gradient(circle at 30% 30%, #43e97b, #38f9d7); z-index: 2; }
+.lucky-gacha-ball.purple { background: radial-gradient(circle at 30% 30%, #c471ed, #f64f59); z-index: 3; }
+
+/* 내부 공 15개 꽉 채우기 (bottom, left 좌표 퍼센트로 분산) */
+.lucky-gacha-ball.b1 { bottom: 2%; left: 5%; z-index: 1; transform: rotate(15deg) scale(0.9); }
+.lucky-gacha-ball.b2 { bottom: 0%; left: 22%; z-index: 3; transform: rotate(-25deg); }
+.lucky-gacha-ball.b3 { bottom: 5%; left: 40%; z-index: 2; transform: rotate(10deg) scale(0.85); }
+.lucky-gacha-ball.b4 { bottom: 1%; left: 60%; z-index: 4; transform: rotate(-10deg); }
+.lucky-gacha-ball.b5 { bottom: 8%; left: 78%; z-index: 1; transform: rotate(35deg); }
+
+.lucky-gacha-ball.b6 { bottom: 18%; left: 10%; z-index: 4; transform: rotate(-5deg); }
+.lucky-gacha-ball.b7 { bottom: 15%; left: 30%; z-index: 5; transform: rotate(45deg) scale(1.05); }
+.lucky-gacha-ball.b8 { bottom: 20%; left: 50%; z-index: 4; transform: rotate(-15deg); }
+.lucky-gacha-ball.b9 { bottom: 16%; left: 72%; z-index: 5; transform: rotate(20deg) scale(0.95); }
+
+.lucky-gacha-ball.b10 { bottom: 32%; left: 8%; z-index: 6; transform: rotate(30deg); }
+.lucky-gacha-ball.b11 { bottom: 28%; left: 25%; z-index: 7; transform: rotate(-40deg) scale(0.9); }
+.lucky-gacha-ball.b12 { bottom: 35%; left: 45%; z-index: 6; transform: rotate(5deg); }
+.lucky-gacha-ball.b13 { bottom: 30%; left: 65%; z-index: 8; transform: rotate(-10deg) scale(1.1); }
+.lucky-gacha-ball.b14 { bottom: 38%; left: 82%; z-index: 7; transform: rotate(25deg); }
+.lucky-gacha-ball.b15 { bottom: 48%; left: 15%; z-index: 9; transform: rotate(15deg); }
+
+.lucky-gacha-ball.b19 { bottom: 45%; left: 35%; z-index: 10; transform: rotate(-20deg) scale(0.95); }
+.lucky-gacha-ball.b20 { bottom: 52%; left: 55%; z-index: 9; transform: rotate(40deg); }
+.lucky-gacha-ball.b21 { bottom: 49%; left: 75%; z-index: 10; transform: rotate(-5deg) scale(1.05); }
+
+.lucky-gacha-ball.b22 { bottom: 65%; left: 10%; z-index: 11; transform: rotate(5deg) scale(0.9); }
+.lucky-gacha-ball.b23 { bottom: 62%; left: 30%; z-index: 12; transform: rotate(-15deg); }
+.lucky-gacha-ball.b24 { bottom: 68%; left: 50%; z-index: 11; transform: rotate(25deg); }
+.lucky-gacha-ball.b25 { bottom: 60%; left: 70%; z-index: 12; transform: rotate(-30deg) scale(0.95); }
+
+.lucky-gacha-ball.b26 { bottom: 82%; left: 20%; z-index: 13; transform: rotate(10deg); }
+.lucky-gacha-ball.b27 { bottom: 78%; left: 42%; z-index: 14; transform: rotate(-25deg) scale(1.05); }
+.lucky-gacha-ball.b28 { bottom: 84%; left: 62%; z-index: 13; transform: rotate(15deg) scale(0.9); }
+
+.lucky-gacha-ball.b29 { bottom: 95%; left: 35%; z-index: 15; transform: rotate(-5deg); }
+.lucky-gacha-ball.b30 { bottom: 92%; left: 55%; z-index: 14; transform: rotate(35deg) scale(0.95); }
+
+/* 상자 바깥으로 굴러나온 공들 */
+.lucky-gacha-ball.out-box {
+  width: 55px; height: 55px;
+  position: absolute;
+  filter: drop-shadow(0 15px 20px rgba(0,0,0,0.15));
+}
+.lucky-gacha-ball.b16 { bottom: -15px; left: -30px; transform: rotate(-15deg); z-index: 10; }
+.lucky-gacha-ball.b17 { bottom: 30px; right: -45px; transform: rotate(35deg); z-index: 10; }
+.lucky-gacha-ball.b18 { bottom: -20px; right: 20px; transform: rotate(60deg); z-index: 10; }
+.lucky-gacha-ball.b31 { bottom: 10px; left: -50px; transform: rotate(10deg); z-index: 9; }
+.lucky-gacha-ball.b32 { bottom: 40px; left: -25px; transform: rotate(-45deg); z-index: 8; }
 
 .click-badge {
   position: absolute;
