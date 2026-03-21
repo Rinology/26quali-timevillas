@@ -101,185 +101,6 @@ const bikeData = {
   }
 };
 
-let currentBikeType = 'pro';
-let currentImgIdx = 0;
-
-function showBikeImage(type) {
-  currentBikeType = type;
-  currentImgIdx = 0; // 모델 변경 시 첫 번째 사진부터 노출
-  updateBikeView();
-}
-
-function updateBikeView() {
-  const viewer = document.getElementById('bike-viewer');
-  const data = bikeData[currentBikeType];
-  const imageSrc = data.images[currentImgIdx];
-
-
-
-  let benefitHtml = '';
-  if (data.benefit) {
-    benefitHtml = `
-      <!-- 프리미엄 혜택 알림 영역 (베네핏 01 연계) -->
-      <div class="benefit-alert-box">
-        <span class="benefit-alert-icon">🎁</span>
-        <span>${data.benefit}</span>
-      </div>
-    `;
-  }
-
-  // 라인업 버튼 활성화 상태 업데이트
-  document.querySelectorAll('.lineup-pill').forEach(btn => {
-    btn.classList.remove('active');
-  });
-  const activeBtn = document.getElementById('btn-' + currentBikeType);
-  if (activeBtn) {
-    activeBtn.classList.add('active');
-  }
-
-  let dotsHtml = '';
-  let swipeHintHtml = '';
-  if (data.images.length > 1) {
-    swipeHintHtml = `
-      <div class="swipe-hint">좌우로 슬라이드</div>`;
-    dotsHtml = '<div class="viewer-dots">';
-    data.images.forEach((imgUrl, idx) => {
-      dotsHtml += `<div class="viewer-dot ${idx === currentImgIdx ? 'active' : ''}"></div>`;
-    });
-    dotsHtml += '</div>';
-  }
-
-  // 뷰어 내용 업데이트: DOM 덮어쓰기로 인한 깜빡임 방지
-  const stage = viewer.querySelector('.viewer-stage');
-  if (!stage) {
-    viewer.innerHTML = `
-      <div class="viewer-stage">
-        <!-- 이미지 영역 -->
-        <div class="viewer-img-container swipe-container" data-type="bike">
-          ${swipeHintHtml}
-          <img src="${imageSrc}" alt="${data.name} 이미지 ${currentImgIdx + 1}" class="viewer-bike-img">
-          ${dotsHtml}
-        </div>
-        
-        <!-- 가격 & 상세 배지 및 네비게이션 버튼 그룹 -->
-        <div class="viewer-nav-group">
-          <!-- 가격 배지 -->
-          <a href="${data.link}" target="_blank" rel="noopener noreferrer" class="viewer-price-badge">
-            <span class="viewer-price-name">${data.name}</span>
-            <span class="viewer-price-sep"></span>
-            <span class="viewer-price-val">${data.price}</span>
-          </a>
-          
-          <!-- 상세 보기 버튼 -->
-          <a href="${data.link}" target="_blank" rel="noopener noreferrer" class="viewer-detail-btn-wide">
-            <span>상세페이지로 이동</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-        
-        ${benefitHtml}
-        
-      </div>
-    `;
-    setupSwipeListener(viewer.querySelector('.swipe-container'), prevBike, nextBike);
-  } else {
-    // 기존 DOM 업데이트 (깜빡임 최소화)
-    const img = stage.querySelector('.viewer-bike-img');
-    if (img) {
-      img.style.animation = 'none';
-      img.getBoundingClientRect(); // 플로우 트리거
-      img.src = imageSrc;
-      img.alt = `${data.name} 이미지 ${currentImgIdx + 1}`;
-      img.style.transform = ''; // 인라인 트랜스폼 초기화
-      img.style.animation = 'fadeIn 0.4s ease both';
-    }
-    
-    // 스와이프 힌트 업데이트
-    let hintEl = stage.querySelector('.swipe-hint');
-    if (data.images.length > 1) {
-      if (!hintEl) {
-        hintEl = document.createElement('div');
-        hintEl.className = 'swipe-hint';
-        hintEl.innerHTML = '좌우로 슬라이드';
-        stage.querySelector('.viewer-img-container').prepend(hintEl);
-      }
-    } else if (hintEl) {
-      hintEl.remove();
-    }
-    
-    // 도트 업데이트
-    let dotsContainer = stage.querySelector('.viewer-dots');
-    if (data.images.length > 1) {
-      if (!dotsContainer) {
-        dotsContainer = document.createElement('div');
-        dotsContainer.className = 'viewer-dots';
-        stage.querySelector('.viewer-img-container').appendChild(dotsContainer);
-      }
-      dotsContainer.innerHTML = '';
-      data.images.forEach((imgUrl, idx) => {
-        dotsContainer.innerHTML += `<div class="viewer-dot ${idx === currentImgIdx ? 'active' : ''}"></div>`;
-      });
-    } else if (dotsContainer) {
-      dotsContainer.remove();
-    }
-    
-    const priceBadge = stage.querySelector('.viewer-price-badge');
-    if (priceBadge) {
-      priceBadge.href = data.link;
-      const nameEl = priceBadge.querySelector('.viewer-price-name');
-      const valEl = priceBadge.querySelector('.viewer-price-val');
-      if (nameEl) nameEl.textContent = data.name;
-      if (valEl) valEl.textContent = data.price;
-    }
-    
-    const detailBtn = stage.querySelector('.viewer-detail-btn-wide');
-    if (detailBtn) detailBtn.href = data.link;
-
-    const oldBenefit = stage.querySelector('.benefit-alert-box');
-    if (oldBenefit) oldBenefit.remove();
-
-    if (data.benefit) {
-      stage.insertAdjacentHTML('beforeend', benefitHtml);
-    }
-  }
-}
-
-function prevBike() {
-  const data = bikeData[currentBikeType];
-  const bikeKeys = Object.keys(bikeData);
-  currentImgIdx--;
-
-  if (currentImgIdx < 0) {
-    // 현재 모델의 첫 사진에서 이전을 누르면, 이전 모델의 마지막 사진으로 이동
-    const currentModelIdx = bikeKeys.indexOf(currentBikeType);
-    const prevModelIdx = (currentModelIdx - 1 + bikeKeys.length) % bikeKeys.length;
-    currentBikeType = bikeKeys[prevModelIdx];
-    currentImgIdx = bikeData[currentBikeType].images.length - 1;
-  }
-  updateBikeView();
-}
-
-function nextBike() {
-  const data = bikeData[currentBikeType];
-  const bikeKeys = Object.keys(bikeData);
-  currentImgIdx++;
-
-  if (currentImgIdx >= data.images.length) {
-    // 현재 모델의 마지막 사진에서 다음을 누르면, 다음 모델의 첫 사진으로 이동
-    const currentModelIdx = bikeKeys.indexOf(currentBikeType);
-    const nextModelIdx = (currentModelIdx + 1) % bikeKeys.length;
-    currentBikeType = bikeKeys[nextModelIdx];
-    currentImgIdx = 0;
-  }
-  updateBikeView();
-}
-
-// 화면이 불렸을 때 기본적으로 프로 맥스 표시
-window.addEventListener('DOMContentLoaded', () => {
-  showBikeImage('pro');
-  showExtraImage('slim'); // 엑스트라 라인업 기본 표시
-});
-
 const extraData = {
   'slim': {
     name: '슬림',
@@ -367,27 +188,44 @@ const extraData = {
   }
 };
 
-let currentExtraType = 'slim';
-let currentExtraIdx = 0;
+const galleryState = {
+  bike: {
+    type: 'pro',
+    imgIdx: 0,
+    dataMap: bikeData,
+    viewerId: 'bike-viewer',
+    tabSelector: '#max-series .lineup-pill'
+  },
+  extra: {
+    type: 'slim',
+    imgIdx: 0,
+    dataMap: extraData,
+    viewerId: 'extra-viewer',
+    tabSelector: '#extra-series .lineup-pill'
+  }
+};
 
-function showExtraImage(type) {
-  currentExtraType = type;
-  currentExtraIdx = 0;
-  updateExtraView();
+window.showBikeImage = (type) => showGalleryImage('bike', type);
+window.showExtraImage = (type) => showGalleryImage('extra', type);
+
+function showGalleryImage(category, type) {
+  galleryState[category].type = type;
+  galleryState[category].imgIdx = 0;
+  updateGalleryView(category);
 }
 
-function updateExtraView() {
-  const viewer = document.getElementById('extra-viewer');
+function updateGalleryView(category) {
+  const state = galleryState[category];
+  const viewer = document.getElementById(state.viewerId);
   if (!viewer) return;
-  const data = extraData[currentExtraType];
-  const imageItem = data.images[currentExtraIdx];
 
-
+  const data = state.dataMap[state.type];
+  const imageSrc = data.images[state.imgIdx];
 
   let benefitHtml = '';
   if (data.benefit) {
     benefitHtml = `
-      <!-- 프리미엄 혜택 알림 영역 (베네핏 01 연계) -->
+      <!-- 프리미엄 혜택 알림 영역 (베네핏 연계) -->
       <div class="benefit-alert-box">
         <span class="benefit-alert-icon">🎁</span>
         <span>${data.benefit}</span>
@@ -395,11 +233,11 @@ function updateExtraView() {
     `;
   }
 
-  // 라인업 버튼 활성화 상태 업데이트 (extra 라인업)
-  document.querySelectorAll('#extra-series .lineup-pill').forEach(btn => {
+  // 라인업 버튼 활성화 상태 업데이트
+  document.querySelectorAll(state.tabSelector).forEach(btn => {
     btn.classList.remove('active');
   });
-  const activeBtn = document.getElementById('btn-' + currentExtraType);
+  const activeBtn = document.getElementById('btn-' + state.type);
   if (activeBtn) {
     activeBtn.classList.add('active');
   }
@@ -411,24 +249,23 @@ function updateExtraView() {
       <div class="swipe-hint">좌우로 슬라이드</div>`;
     dotsHtml = '<div class="viewer-dots">';
     data.images.forEach((imgUrl, idx) => {
-      dotsHtml += `<div class="viewer-dot ${idx === currentExtraIdx ? 'active' : ''}"></div>`;
+      dotsHtml += `<div class="viewer-dot ${idx === state.imgIdx ? 'active' : ''}"></div>`;
     });
     dotsHtml += '</div>';
   }
 
-  // 뷰어 내용 업데이트: DOM 덮어쓰기로 인한 깜빡임 방지
   const stage = viewer.querySelector('.viewer-stage');
   if (!stage) {
     viewer.innerHTML = `
       <div class="viewer-stage">
         <!-- 이미지 영역 -->
-        <div class="viewer-img-container swipe-container" data-type="extra">
+        <div class="viewer-img-container swipe-container" data-type="${category}">
           ${swipeHintHtml}
-          <img src="${imageItem}" alt="${data.name} 이미지 ${currentExtraIdx + 1}" class="viewer-bike-img">
+          <img src="${imageSrc}" alt="${data.name} 이미지 ${state.imgIdx + 1}" class="viewer-bike-img">
           ${dotsHtml}
         </div>
         
-        <!-- 가격 & 상세 배지 등 버튼 그룹 -->
+        <!-- 가격 & 상세 배지 및 네비게이션 버튼 그룹 -->
         <div class="viewer-nav-group">
           <!-- 가격 배지 -->
           <a href="${data.link}" target="_blank" rel="noopener noreferrer" class="viewer-price-badge">
@@ -448,19 +285,19 @@ function updateExtraView() {
         
       </div>
     `;
-    setupSwipeListener(viewer.querySelector('.swipe-container'), prevExtra, nextExtra);
+    setupSwipeListener(viewer.querySelector('.swipe-container'), () => prevGalleryImage(category), () => nextGalleryImage(category));
   } else {
     // 기존 DOM 업데이트 (깜빡임 최소화)
     const img = stage.querySelector('.viewer-bike-img');
     if (img) {
       img.style.animation = 'none';
       img.getBoundingClientRect(); // 플로우 트리거
-      img.src = imageItem;
-      img.alt = `${data.name} 이미지 ${currentExtraIdx + 1}`;
+      img.src = imageSrc;
+      img.alt = `${data.name} 이미지 ${state.imgIdx + 1}`;
       img.style.transform = ''; // 인라인 트랜스폼 초기화
       img.style.animation = 'fadeIn 0.4s ease both';
     }
-
+    
     // 스와이프 힌트 업데이트
     let hintEl = stage.querySelector('.swipe-hint');
     if (data.images.length > 1) {
@@ -473,7 +310,7 @@ function updateExtraView() {
     } else if (hintEl) {
       hintEl.remove();
     }
-
+    
     // 도트 업데이트
     let dotsContainer = stage.querySelector('.viewer-dots');
     if (data.images.length > 1) {
@@ -484,7 +321,7 @@ function updateExtraView() {
       }
       dotsContainer.innerHTML = '';
       data.images.forEach((imgUrl, idx) => {
-        dotsContainer.innerHTML += `<div class="viewer-dot ${idx === currentExtraIdx ? 'active' : ''}"></div>`;
+        dotsContainer.innerHTML += `<div class="viewer-dot ${idx === state.imgIdx ? 'active' : ''}"></div>`;
       });
     } else if (dotsContainer) {
       dotsContainer.remove();
@@ -511,35 +348,39 @@ function updateExtraView() {
   }
 }
 
-function prevExtra() {
-  const data = extraData[currentExtraType];
-  const extraKeys = Object.keys(extraData);
-  currentExtraIdx--;
+function prevGalleryImage(category) {
+  const state = galleryState[category];
+  const keys = Object.keys(state.dataMap);
+  state.imgIdx--;
 
-  if (currentExtraIdx < 0) {
-    // 현재 모델의 첫 사진에서 이전을 누르면, 이전 모델의 마지막 사진으로 이동
-    const currentModelIdx = extraKeys.indexOf(currentExtraType);
-    const prevModelIdx = (currentModelIdx - 1 + extraKeys.length) % extraKeys.length;
-    currentExtraType = extraKeys[prevModelIdx];
-    currentExtraIdx = extraData[currentExtraType].images.length - 1;
+  if (state.imgIdx < 0) {
+    const currentModelIdx = keys.indexOf(state.type);
+    const prevModelIdx = (currentModelIdx - 1 + keys.length) % keys.length;
+    state.type = keys[prevModelIdx];
+    state.imgIdx = state.dataMap[state.type].images.length - 1;
   }
-  updateExtraView();
+  updateGalleryView(category);
 }
 
-function nextExtra() {
-  const data = extraData[currentExtraType];
-  const extraKeys = Object.keys(extraData);
-  currentExtraIdx++;
+function nextGalleryImage(category) {
+  const state = galleryState[category];
+  const keys = Object.keys(state.dataMap);
+  state.imgIdx++;
 
-  if (currentExtraIdx >= data.images.length) {
-    // 현재 모델의 마지막 사진에서 다음을 누르면, 다음 모델의 첫 사진으로 이동
-    const currentModelIdx = extraKeys.indexOf(currentExtraType);
-    const nextModelIdx = (currentModelIdx + 1) % extraKeys.length;
-    currentExtraType = extraKeys[nextModelIdx];
-    currentExtraIdx = 0;
+  if (state.imgIdx >= state.dataMap[state.type].images.length) {
+    const currentModelIdx = keys.indexOf(state.type);
+    const nextModelIdx = (currentModelIdx + 1) % keys.length;
+    state.type = keys[nextModelIdx];
+    state.imgIdx = 0;
   }
-  updateExtraView();
+  updateGalleryView(category);
 }
+
+// 화면이 불렸을 때 기본적으로 프로 맥스 및 슬림 렌더링
+window.addEventListener('DOMContentLoaded', () => {
+  showGalleryImage('bike', 'pro');
+  showGalleryImage('extra', 'slim');
+});
 
 function setupSwipeListener(container, prevFunc, nextFunc) {
   if (!container || container.dataset.swipeBound === "true") return;

@@ -2073,3 +2073,47 @@ section { margin-top: 48px; }
   box-shadow: 0 6px 16px rgba(52, 184, 217, 0.3);
 }
 
+/* ============================================
+   리팩토링 유틸리티 클래스 & 분리된 스타일
+============================================ */
+.nowrap { white-space: nowrap; }
+.keep-all { word-break: keep-all; }
+
+.meta-row.hero-meta-row {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+}
+.meta-sep.meta-sep-spaced {
+  margin: 0 4px;
+}
+
+.cta-container {
+  text-align: center;
+  padding: 60px 20px;
+}
+.cta-title {
+  font-size: clamp(26px, 5vw, 42px);
+  font-weight: 800;
+  color: var(--c-text);
+  margin-bottom: 16px;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  word-break: keep-all;
+}
+.cta-title-highlight {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--c-blue), var(--c-cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-right: 4px;
+}
+.cta-desc {
+  font-size: clamp(15px, 2.5vw, 18px);
+  color: var(--c-muted);
+  margin-bottom: 40px;
+  line-height: 1.6;
+  font-weight: 500;
+}
+

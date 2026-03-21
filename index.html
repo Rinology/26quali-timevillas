@@ -68,14 +68,12 @@
         당신의 일상을 더 넓게 EXTEND 하세요.
       </p>
       <div class="hero-meta">
-        <div class="meta-row" style="flex-wrap: wrap; justify-content: center; gap: 4px;">
-          <span style="white-space: nowrap;"><span class="chip-icon">📅</span> 2026.03.27 ~ 04.16</span>
-          <span class="meta-sep" style="margin: 0 4px;">/</span>
-          <span style="white-space: nowrap;"><span class="chip-icon">🕙</span> 10:30 ~ 22:00</span>
+        <div class="meta-row hero-meta-row">
+          <span class="nowrap"><span class="chip-icon">📅</span> 2026.03.27 ~ 04.16</span>
+          <span class="meta-sep meta-sep-spaced">/</span>
+          <span class="nowrap"><span class="chip-icon">🕙</span> 10:30 ~ 22:00</span>
         </div>
         <div class="meta-row meta-row-relative">
-          <!-- 마스코트 이미지 (주석처리됨) -->
-          <!-- <img src="images/mascot-bike1.png" alt="마스코트" class="mascot-img" style="position: absolute; animation: float 3s ease-in-out infinite; z-index: 10;"> -->
           <span class="chip-icon">📍</span> 수원 타임빌라스 2층 스타벅스 앞
         </div>
       </div>
@@ -142,7 +140,7 @@
           <div class="overview-icon">🎁</div>
           <div class="overview-text">
             <strong>무조건 증정!</strong>
-            <p style="word-break: keep-all;">가방, 스마트폰 거치대, 자물쇠, 수동 펌프</p>
+            <p class="keep-all">가방, 스마트폰 거치대, 자물쇠, 수동 펌프</p>
           </div>
         </div>
       </div>
@@ -326,7 +324,7 @@
     <div class="section-header">
       <span class="section-eyebrow">⚡ 2026 MAX SERIES</span>
       <h2 class="section-title">팝업의 하이라이트<br><em>맥스 시리즈를 만나다</em></h2>
-      <p class="section-desc" style="word-break: keep-all;">2026년 새롭게 라인업에 합류하여 뜨거운 반응을 얻고 있는<br>풀서스펜션의 맥스 시리즈를 직접 만나보세요.</p>
+      <p class="section-desc keep-all">2026년 새롭게 라인업에 합류하여 뜨거운 반응을 얻고 있는<br>풀서스펜션의 맥스 시리즈를 직접 만나보세요.</p>
     </div>
     <div class="max-series-container">
       <div class="max-features">
@@ -334,7 +332,7 @@
           <span class="feat-icon">🏍️</span>
           <div>
             <h4>FULL SUSPENSION</h4>
-            <p style="word-break: keep-all;">앞뒤 서스펜션이 노면의 충격을 유연하게 흡수,<br>장거리 피로감이 현저히 줄어듭니다.</p>
+            <p class="keep-all">앞뒤 서스펜션이 노면의 충격을 유연하게 흡수,<br>장거리 피로감이 현저히 줄어듭니다.</p>
           </div>
         </div>
         <div class="max-feature-item">
@@ -378,10 +376,7 @@
           [제품 이미지 자리 - 버튼을 클릭하면 이미지가 보입니다]
         </div>
       </div>
-      <!-- 
-        나중에 실제 이미지를 넣으려면 위 div 안에 img 태그를 넣고 자바스크립트에서 src를 변경해 주시면 됩니다. 
-        예: <img id="bike-img" src="" alt="선택된 자전거" style="width:100%; height:100%; object-fit:contain;">
-      -->
+
 
     </div>
   </section>
@@ -477,20 +472,6 @@
         </div>
       </div>
 
-      <!-- 엘리베이터 QnA 주석 처리
-      <div class="faq-item">
-        <button class="faq-trigger" onclick="toggleFaq(this)">
-          <span class="faq-q-badge">Q</span>
-          <h4>아파트 엘리베이터에 실을 수 있을까요?</h4>
-          <span class="faq-arrow">▾</span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">
-            네! 대부분의 일반적인 엘리베이터에 <strong>대각선 방향으로 세워</strong> 실을 수 있습니다. 다소 좁더라도 뒷브레이크를 잡고 자전거를 수직으로 살짝 일으켜 세우면 무리 없이 들어갑니다.
-          </div>
-        </div>
-      </div>
-      -->
 
       <!-- 신규 QnA 3종 추가 -->
       <div class="faq-item">
@@ -589,12 +570,12 @@
 
   <!-- ============ CTA ============ -->
   <section id="cta">
-    <div style="text-align: center; padding: 60px 20px;">
-      <h2 style="font-size: clamp(26px, 5vw, 42px); font-weight: 800; color: var(--c-text); margin-bottom: 16px; line-height: 1.35; letter-spacing: -0.02em; word-break: keep-all;">
+    <div class="cta-container">
+      <h2 class="cta-title">
         2026년 봄, 퀄리스포츠와 함께<br>
-        <span style="display: inline-block; background: linear-gradient(90deg, var(--c-blue), var(--c-cyan)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; padding-right: 4px;">당신의 일상을 EXTEND!</span>
+        <span class="cta-title-highlight">당신의 일상을 EXTEND!</span>
       </h2>
-      <p style="font-size: clamp(15px, 2.5vw, 18px); color: var(--c-muted); margin-bottom: 40px; line-height: 1.6; font-weight: 500;">
+      <p class="cta-desc">
         신제품 시승부터 빵빵한 7종 풀패키지 사은품,<br>
         무료 조립,배송 혜택까지 — 올봄 최고의 기회입니다.<br>
         이번 주말, 수원 타임빌라스로 가벼운 마음으로 나들이 오세요!
