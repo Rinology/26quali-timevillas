@@ -584,6 +584,100 @@ function retryLuckyDraw() {
 /* ============================================
    상세페이지 모달
 ============================================ */
+const modelDetailImages = {
+  // 맥스 시리즈 (bikeData)
+  'pro': [
+    'images/detail/promax/엑스트론_프로_맥스_상세페이지_01_메인.jpg',
+    'images/detail/promax/엑스트론_프로_맥스_상세페이지_02_불편사항.jpg',
+    'images/detail/promax/엑스트론_프로_맥스_상세페이지_03_매직카펫라이드.jpg',
+    'images/detail/promax/엑스트론_프로_맥스_상세페이지_04_서스펜션(1)_01.jpg',
+    'images/detail/promax/엑스트론_프로_맥스_상세페이지_04_서스펜션(1)_02.jpg',
+    'images/detail/promax/엑스트론_프로_맥스_상세페이지_04_서스펜션(1)_05.jpg',
+    'images/detail/promax/엑스트론_프로_맥스_상세페이지_05_타이어(2).jpg',
+    'images/detail/promax/엑스트론_프로_맥스_상세페이지_06_브레이크(3)_01.jpg',
+    'images/detail/promax/엑스트론_프로_맥스_상세페이지_07_변속기(4)_01.jpg',
+    'images/detail/promax/엑스트론_프로_맥스_상세페이지_08_모터,등판각도(5).jpg',
+    'images/detail/promax/엑스트론_프로_맥스_상세페이지_09_배터리(6).jpg',
+    'images/detail/promax/엑스트론_프로_맥스_상세페이지_10_계기판&기능(7).jpg',
+    'images/detail/promax/엑스트론_프로_맥스_상세페이지_11_폴딩시스템(8).jpg',
+    'images/detail/promax/엑스트론_프로_맥스_상세페이지_12_라이트(9).jpg',
+    'images/detail/promax/엑스트론_프로_맥스_상세페이지_13_사이즈,구성품,제품정보.jpg'
+  ],
+  'city': [
+    'images/detail/citymax/엑스트론_시티_맥스_상세페이지_01_메인.jpg',
+    'images/detail/citymax/엑스트론_시티_맥스_상세페이지_02_불편사항.jpg',
+    'images/detail/citymax/엑스트론_시티_맥스_상세페이지_03_매직카펫라이드.jpg',
+    'images/detail/citymax/엑스트론_시티_맥스_상세페이지_04_서스펜션(1)_01.jpg',
+    'images/detail/citymax/엑스트론_시티_맥스_상세페이지_04_서스펜션(1)_02.jpg',
+    'images/detail/citymax/엑스트론_시티_맥스_상세페이지_04_서스펜션(1)_05.jpg',
+    'images/detail/citymax/엑스트론_시티_맥스_상세페이지_05_타이어(2).jpg',
+    'images/detail/citymax/엑스트론_시티_맥스_상세페이지_06_브레이크(3)_01.jpg',
+    'images/detail/citymax/엑스트론_시티_맥스_상세페이지_07_변속기(4)_01.jpg',
+    'images/detail/citymax/엑스트론_시티_맥스_상세페이지_08_모터,등판각도(5).jpg',
+    'images/detail/citymax/엑스트론_시티_맥스_상세페이지_09_배터리(6).jpg',
+    'images/detail/citymax/엑스트론_시티_맥스_상세페이지_10_계기판&기능(7).jpg',
+    'images/detail/citymax/엑스트론_시티_맥스_상세페이지_11_라이트(8).jpg',
+    'images/detail/citymax/엑스트론_시티_맥스_상세페이지_12_사이즈,구성품,제품정보.jpg'
+  ],
+  'tour': [
+    'images/detail/tourmax/엑스트론_투어_맥스_상세페이지_01_메인.jpg',
+    'images/detail/tourmax/엑스트론_투어_맥스_상세페이지_02_불편사항.jpg',
+    'images/detail/tourmax/엑스트론_투어_맥스_상세페이지_03_매직카펫라이드.jpg',
+    'images/detail/tourmax/엑스트론_투어_맥스_상세페이지_04_서스펜션(1)_01.jpg',
+    'images/detail/tourmax/엑스트론_투어_맥스_상세페이지_04_서스펜션(1)_02.jpg',
+    'images/detail/tourmax/엑스트론_투어_맥스_상세페이지_04_서스펜션(1)_05.jpg',
+    'images/detail/tourmax/엑스트론_투어_맥스_상세페이지_05_타이어(2).jpg',
+    'images/detail/tourmax/엑스트론_투어_맥스_상세페이지_06_브레이크(3)_01.jpg',
+    'images/detail/tourmax/엑스트론_투어_맥스_상세페이지_07_변속기(4)_01.jpg',
+    'images/detail/tourmax/엑스트론_투어_맥스_상세페이지_08_모터,등판각도(5).jpg',
+    'images/detail/tourmax/엑스트론_투어_맥스_상세페이지_09_배터리(6).jpg',
+    'images/detail/tourmax/엑스트론_투어_맥스_상세페이지_10_계기판&기능(7).jpg',
+    'images/detail/tourmax/엑스트론_투어_맥스_상세페이지_11_라이트(8).jpg',
+    'images/detail/tourmax/엑스트론_투어_맥스_상세페이지_12_사이즈,구성품,제품정보.jpg'
+  ],
+  'promini': [
+    'images/detail/prominimax/엑스트론_프로미니_맥스_상세페이지_01_메인.jpg',
+    'images/detail/prominimax/엑스트론_프로미니_맥스_상세페이지_02_불편사항.jpg',
+    'images/detail/prominimax/엑스트론_프로미니_맥스_상세페이지_03_매직카펫라이드.jpg',
+    'images/detail/prominimax/엑스트론_프로미니_맥스_상세페이지_04_서스펜션(1)_01.jpg',
+    'images/detail/prominimax/엑스트론_프로미니_맥스_상세페이지_04_서스펜션(1)_02.jpg',
+    'images/detail/prominimax/엑스트론_프로미니_맥스_상세페이지_04_서스펜션(1)_05.jpg',
+    'images/detail/prominimax/엑스트론_프로미니_맥스_상세페이지_05_타이어(2).jpg',
+    'images/detail/prominimax/엑스트론_프로미니_맥스_상세페이지_06_브레이크(3).jpg',
+    'images/detail/prominimax/엑스트론_프로미니_맥스_상세페이지_07_모터,등판각도(4).jpg',
+    'images/detail/prominimax/엑스트론_프로미니_맥스_상세페이지_08_배터리(5).jpg',
+    'images/detail/prominimax/엑스트론_프로미니_맥스_상세페이지_09_계기판&기능(6).jpg',
+    'images/detail/prominimax/엑스트론_프로미니_맥스_상세페이지_10_폴딩(7).jpg',
+    'images/detail/prominimax/엑스트론_프로미니_맥스_상세페이지_11_라이트(8).jpg',
+    'images/detail/prominimax/엑스트론_프로미니_맥스_상세페이지_13_사이즈,구성품,제품정보.jpg'
+  ],
+  
+  // 엑스트라 시리즈 (extraData)
+  'slim': ['images/detail/slim/2025_엑스트론_슬림_상세페이지_02.jpg'],
+  'mini': ['images/detail/mini/2026_엑스트론_미니_상세페이지.jpg'],
+  'gt': [
+    'images/detail/GT/2025_엑스트론_GT_상세페이지_01.jpg',
+    'images/detail/GT/2025_엑스트론_GT_상세페이지_02.jpg'
+  ],
+  'gtmini': ['images/detail/GTmini/2025_엑스트론_GT미니_상세페이지.jpg'],
+  'xpro': [
+    'images/detail/pro/2025_엑스트론_프로_상세페이지_01.jpg',
+    'images/detail/pro/2025_엑스트론_프로_상세페이지_02.jpg'
+  ],
+  'xpros': ['images/detail/proS/2025_엑스트론_프로S_상세페이지.jpg'],
+  'xcity': [
+    'images/detail/city/2025_엑스트론_시티_상세페이지_01.jpg',
+    'images/detail/city/2025_엑스트론_시티_상세페이지_02.jpg'
+  ],
+  'xtour': [
+    'images/detail/tour/2025_엑스트론_투어_상세페이지_01.jpg',
+    'images/detail/tour/2025_엑스트론_투어_상세페이지_02.jpg'
+  ],
+  'xpromini': ['images/detail/promini/2025_엑스트론_프로미니_상세페이지.jpg'],
+  'eqneo': ['images/detail/EQ/2025_엑스트론_EQ_상세페이지.jpg'],
+  'eq': ['images/detail/EQ/2025_엑스트론_EQ_상세페이지.jpg']
+};
+
 function openDetailModal(e, category, type) {
   if (e) e.preventDefault();
   
@@ -593,33 +687,31 @@ function openDetailModal(e, category, type) {
   if (modal && resultBox) {
     let targetImages = [];
     
-    // 눌린 모델에 detailImages 속성이 정의되어 있다면 그것을 불러옴
-    if (category && type && galleryState[category] && galleryState[category].dataMap[type]) {
+    // 모델별 상세 이미지가 정의되어 있으면 로드
+    if (type && modelDetailImages[type]) {
+      targetImages = modelDetailImages[type];
+    }
+    // 데이터 구조(bikeData.detailImages)에 있다면 불러옴
+    else if (category && type && galleryState[category] && galleryState[category].dataMap[type]) {
       const data = galleryState[category].dataMap[type];
       if (data.detailImages && data.detailImages.length > 0) {
         targetImages = data.detailImages;
       }
     }
     
-    // detailImages가 정의되지 않았다면 기존 임시 이미지를 로드
+    // 타겟 이미지가 맵핑되지 않았다면 임시 목업 (또는 빈 화면 방지용 메인 이미지 등)
     if (targetImages.length === 0) {
       targetImages = [
         'images/1-1_xtron_pro_max_b.png',
         'images/1-2_xtron_pro_max_g.png',
         'images/1-3_xtron_pro_max_w.png',
-        'images/2-1_xtron_city_max_b.png',
-        'images/2-2_xtron_city_max_g.png',
-        'images/3-1_xtron_tour_max_b.png',
-        'images/3-2_xtron_tour_max_g.png',
-        'images/4-1_xtron_pro_mini_max_b.png',
-        'images/4-2_xtron_pro_mini_max_g.png',
-        'images/4-3_xtron_pro_mini_max_w.png'
+        'images/2-1_xtron_city_max_b.png'
       ];
     }
     
     let html = '';
     targetImages.forEach((src, index) => {
-      // 첫 번째 이미지는 즉시 뜨도록 하고, 두 번째 이미지부터만 스크롤 시 로딩(lazy)되도록 최적화
+      // 최상단 1개 이미지는 즉시 뜨도록 하고, 나머지는 스크롤 시 로딩되도록 최적화
       const loadingAttr = index === 0 ? '' : 'loading="lazy"';
       html += `<img src="${src}" alt="상세 이미지" ${loadingAttr} style="width:100%; height:auto; display:block;">`;
     });
