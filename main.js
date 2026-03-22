@@ -246,10 +246,10 @@ const xtronData = {
   },
   'eq': {
     name: 'EQ',
-    price: '1,330,000원 ~',
+    price: '1,330,000원',
     prices: [
-      { opt: '19.6Ah (기본 포폴라)', val: '1,330,000원', tag: '기본형' },
-      { opt: '포폴라 모어 업그레이드', val: '+ 30,000원', highlightOpt: true, highlightVal: true }
+      { opt: '19.6Ah', val: '1,330,000원' },
+      { singleLine: '*포폴라모어 변경시 30,000원 추가', highlightVal: true }
     ],
     link: '#',
     images: ['images/8-6_xtron_eq_w.png', 'images/8-6_xtron_eq_B.png', 'images/8-6_xtron_eq_G.png'],
@@ -339,7 +339,11 @@ function updateGalleryView(category) {
           <!-- 가격 배지 -->
           <a href="#" onclick="openDetailModal(event, '${category}', '${state.type}')" class="viewer-price-badge ${data.prices && data.prices.length > 1 ? 'multi-price' : ''}">
             ${data.prices && data.prices.length > 1 ? 
-              data.prices.map(p => `
+              data.prices.map(p => p.singleLine ? `
+                <div class="price-row single-line">
+                  <span class="viewer-price-note ${p.highlightVal ? 'highlight-val' : ''}">${p.singleLine}</span>
+                </div>
+              ` : `
                 <div class="price-row">
                   <span class="viewer-price-name">${data.name} <small class="${p.highlightOpt ? 'highlight-opt' : ''}">${p.opt}</small>${p.tag ? `<span class="opt-tag">${p.tag}</span>` : ''}</span>
                   <span class="viewer-price-sep" style="display:none;"></span>
@@ -413,7 +417,11 @@ function updateGalleryView(category) {
       
       if (data.prices && data.prices.length > 1) {
         priceBadge.classList.add('multi-price');
-        priceBadge.innerHTML = data.prices.map(p => `
+        priceBadge.innerHTML = data.prices.map(p => p.singleLine ? `
+          <div class="price-row single-line">
+            <span class="viewer-price-note ${p.highlightVal ? 'highlight-val' : ''}">${p.singleLine}</span>
+          </div>
+        ` : `
           <div class="price-row">
             <span class="viewer-price-name">${data.name} <small class="${p.highlightOpt ? 'highlight-opt' : ''}">${p.opt}</small>${p.tag ? `<span class="opt-tag">${p.tag}</span>` : ''}</span>
             <span class="viewer-price-sep" style="display:none;"></span>

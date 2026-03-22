@@ -2043,6 +2043,21 @@ section { margin-top: 48px; }
   justify-content: space-between;
   width: 100%;
 }
+
+.viewer-price-badge.multi-price .price-row.single-line {
+  justify-content: center;
+  margin-top: -2px;
+}
+
+.viewer-price-note {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.viewer-price-note.highlight-val {
+  color: #ff6b81; /* 핑크색 글씨 */
+}
 .viewer-price-badge.multi-price .viewer-price-name {
   display: flex;
   align-items: baseline;
