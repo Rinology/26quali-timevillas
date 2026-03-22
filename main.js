@@ -118,7 +118,7 @@ const bikeData = {
   }
 };
 
-const extraData = {
+const xtronData = {
   'slim': {
     name: '슬림',
     price: '1,590,000원 ~',
@@ -213,17 +213,17 @@ const galleryState = {
     viewerId: 'bike-viewer',
     tabSelector: '#max-series .lineup-pill'
   },
-  extra: {
+  xtron: {
     type: 'slim',
     imgIdx: 0,
-    dataMap: extraData,
-    viewerId: 'extra-viewer',
-    tabSelector: '#extra-series .lineup-pill'
+    dataMap: xtronData,
+    viewerId: 'xtron-viewer',
+    tabSelector: '#xtron-series .lineup-pill'
   }
 };
 
 window.showBikeImage = (type) => showGalleryImage('bike', type);
-window.showExtraImage = (type) => showGalleryImage('extra', type);
+window.showXtronImage = (type) => showGalleryImage('xtron', type);
 
 function showGalleryImage(category, type) {
   galleryState[category].type = type;
@@ -400,7 +400,7 @@ function nextGalleryImage(category) {
 // 화면이 불렸을 때 기본적으로 프로 맥스 및 슬림 렌더링
 window.addEventListener('DOMContentLoaded', () => {
   showGalleryImage('bike', 'pro');
-  showGalleryImage('extra', 'slim');
+  showGalleryImage('xtron', 'slim');
 });
 
 function setupSwipeListener(container, prevFunc, nextFunc) {
@@ -652,7 +652,7 @@ const modelDetailImages = {
     'images/detail/prominimax/엑스트론_프로미니_맥스_상세페이지_13_사이즈,구성품,제품정보.jpg'
   ],
   
-  // 엑스트라 시리즈 (extraData)
+  // 엑스트론 시리즈(xtronData)
   'slim': ['images/detail/slim/2025_엑스트론_슬림_상세페이지_02.jpg'],
   'mini': ['images/detail/mini/2026_엑스트론_미니_상세페이지.jpg'],
   'gt': [
@@ -746,9 +746,9 @@ window.addEventListener('load', () => {
     });
   }
   
-  // 엑스트라 라인업 이미지 수집
-  if (typeof extraData !== 'undefined') {
-    Object.values(extraData).forEach(data => {
+  // 엑스트론 라인업 이미지 수집
+  if (typeof xtronData !== 'undefined') {
+    Object.values(xtronData).forEach(data => {
       if (data.images) preloadImages.push(...data.images);
     });
   }
