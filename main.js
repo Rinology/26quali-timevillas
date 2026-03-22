@@ -74,6 +74,9 @@ const bikeData = {
   'pro': {
     name: '프로맥스',
     price: '1,790,000원',
+    prices: [
+      { opt: '19.6Ah', val: '1,790,000원' }
+    ],
     link: '#', // 실제 상세페이지 링크로 수정
     images: ['images/1-1_xtron_pro_max_b.png', 'images/1-2_xtron_pro_max_g.png', 'images/1-3_xtron_pro_max_w.png'],
     benefit: '',
@@ -98,6 +101,9 @@ const bikeData = {
   'city': {
     name: '시티맥스',
     price: '1,790,000원',
+    prices: [
+      { opt: '19.6Ah', val: '1,790,000원' }
+    ],
     link: '#',
     images: ['images/2-1_xtron_city_max_b.png', 'images/2-2_xtron_city_max_g.png'],
     benefit: ''
@@ -105,6 +111,9 @@ const bikeData = {
   'tour': {
     name: '투어맥스',
     price: '1,790,000원',
+    prices: [
+      { opt: '19.6Ah', val: '1,790,000원' }
+    ],
     link: '#',
     images: ['images/3-1_xtron_tour_max_b.png', 'images/3-2_xtron_tour_max_g.png'],
     benefit: ''
@@ -112,6 +121,10 @@ const bikeData = {
   'promini': {
     name: '프로미니맥스',
     price: '1,490,000원 ~',
+    prices: [
+      { opt: '19.6Ah', val: '1,490,000원' },
+      { opt: '28.5Ah', val: '1,590,000원' }
+    ],
     link: '#',
     images: ['images/4-1_xtron_pro_mini_max_b.png', 'images/4-2_xtron_pro_mini_max_g.png', 'images/4-3_xtron_pro_mini_max_w.png'],
     benefit: ''
@@ -122,6 +135,10 @@ const xtronData = {
   'slim': {
     name: '슬림',
     price: '1,590,000원 ~',
+    prices: [
+      { opt: '15Ah', val: '1,590,000원', highlightOpt: true, tag: 'BEST' },
+      { opt: '20Ah', val: '1,630,000원' }
+    ],
     link: '#',
     images: ['images/5-2_xtron_slim_b.png', 'images/5-2_xtron_slim_G.png'],
     benefit: '슬림 컴팩트 전용 리어랙'
@@ -129,6 +146,10 @@ const xtronData = {
   'mini': {
     name: '미니',
     price: '1,730,000원 ~',
+    prices: [
+      { opt: '15Ah', val: '1,730,000원', highlightOpt: true, tag: 'BEST' },
+      { opt: '20Ah', val: '1,830,000원' }
+    ],
     link: '#',
     images: ['images/5-1_xtron_mini_b.png', 'images/5-1_xtron_mini_G.png'],
     benefit: '미니/슬림 모델 리어랙 무상 장착'
@@ -136,6 +157,9 @@ const xtronData = {
   'eqneo': {
     name: 'EQ NEO',
     price: '1,730,000원',
+    prices: [
+      { opt: '20Ah', val: '1,730,000원' }
+    ],
     link: '#',
     images: ['images/6_xtron_neo_be.png'],
     benefit: '자전거 바구니 무상 장착'
@@ -143,6 +167,10 @@ const xtronData = {
   'gt': {
     name: 'GT',
     price: '1,690,000원 ~',
+    prices: [
+      { opt: '19.6Ah', val: '1,690,000원' },
+      { opt: '28.5Ah', val: '1,790,000원' }
+    ],
     link: '#',
     images: ['images/7-2_xtron_gt_g.png'],
     benefit: '프리미엄 썬투어 싯포스트 무상 장착'
@@ -150,6 +178,10 @@ const xtronData = {
   'gtmini': {
     name: 'GT 미니',
     price: '1,390,000원 ~',
+    prices: [
+      { opt: '19.6Ah', val: '1,390,000원' },
+      { opt: '28.5Ah', val: '1,490,000원' }
+    ],
     link: '#',
     images: ['images/7-3_xtron_gt_mini_w.png'],
     benefit: '프리미엄 썬투어 싯포스트 무상 장착'
@@ -157,6 +189,10 @@ const xtronData = {
   'gts': {
     name: 'GT S',
     price: '2,130,000원 ~',
+    prices: [
+      { opt: '19.6Ah', val: '2,130,000원' },
+      { opt: '28.5Ah', val: '2,230,000원' }
+    ],
     link: '#',
     images: ['images/7-1_xtron_gt_s_b.png'],
     benefit: '프리미엄 썬투어 싯포스트 무상 장착'
@@ -164,6 +200,10 @@ const xtronData = {
   'xpro': {
     name: '프로',
     price: '1,690,000원 ~',
+    prices: [
+      { opt: '19.6Ah', val: '1,690,000원' },
+      { opt: '28.5Ah', val: '1,790,000원' }
+    ],
     link: '#',
     images: ['images/8-2_xtron_pro_g.png', 'images/8-2_xtron_pro_B.png'],
     benefit: '프리미엄 썬투어 싯포스트 무상 장착'
@@ -185,6 +225,10 @@ const xtronData = {
   'xtour': {
     name: '투어',
     price: '1,690,000원 ~',
+    prices: [
+      { opt: '19.6Ah', val: '1,690,000원' },
+      { opt: '28.5Ah', val: '1,790,000원' }
+    ],
     link: '#',
     images: ['images/8-4_xtron_tour_g.png', 'images/8-4_xtron_tour_b.png'],
     benefit: '프리미엄 썬투어 싯포스트 무상 장착'
@@ -192,6 +236,10 @@ const xtronData = {
   'xpromini': {
     name: '프로미니',
     price: '1,390,000원 ~',
+    prices: [
+      { opt: '20Ah', val: '1,390,000원' },
+      { opt: '28.5Ah', val: '1,490,000원' }
+    ],
     link: '#',
     images: ['images/8-5_xtron_pro_mini_w.png', 'images/8-5_xtron_pro_mini_b.png', 'images/8-5_xtron_pro_mini_g.png'],
     benefit: ''
@@ -199,9 +247,13 @@ const xtronData = {
   'eq': {
     name: 'EQ',
     price: '1,330,000원 ~',
+    prices: [
+      { opt: '19.6Ah (기본 포폴라)', val: '1,330,000원', tag: '기본형' },
+      { opt: '포폴라 모어 업그레이드', val: '+ 30,000원', highlightOpt: true, highlightVal: true }
+    ],
     link: '#',
     images: ['images/8-6_xtron_eq_w.png', 'images/8-6_xtron_eq_B.png', 'images/8-6_xtron_eq_G.png'],
-    benefit: '프론트 바구니 및 포폴라(+모어) 제공'
+    benefit: '프론트 바구니 및 포폴라 제공'
   }
 };
 
@@ -285,10 +337,20 @@ function updateGalleryView(category) {
         <!-- 가격 & 상세 배지 및 네비게이션 버튼 그룹 -->
         <div class="viewer-nav-group">
           <!-- 가격 배지 -->
-          <a href="#" onclick="openDetailModal(event, '${category}', '${state.type}')" class="viewer-price-badge">
-            <span class="viewer-price-name">${data.name}</span>
-            <span class="viewer-price-sep"></span>
-            <span class="viewer-price-val">${data.price}</span>
+          <a href="#" onclick="openDetailModal(event, '${category}', '${state.type}')" class="viewer-price-badge ${data.prices && data.prices.length > 1 ? 'multi-price' : ''}">
+            ${data.prices && data.prices.length > 1 ? 
+              data.prices.map(p => `
+                <div class="price-row">
+                  <span class="viewer-price-name">${data.name} <small class="${p.highlightOpt ? 'highlight-opt' : ''}">${p.opt}</small>${p.tag ? `<span class="opt-tag">${p.tag}</span>` : ''}</span>
+                  <span class="viewer-price-sep" style="display:none;"></span>
+                  <span class="viewer-price-val ${p.highlightVal ? 'highlight-val' : ''}">${p.val}</span>
+                </div>
+              `).join('')
+            : `
+              <span class="viewer-price-name">${data.name} ${data.prices && data.prices[0] ? `<small class="${data.prices[0].highlightOpt ? 'highlight-opt' : ''}">${data.prices[0].opt}</small>` : ''}</span>
+              <span class="viewer-price-sep"></span>
+              <span class="viewer-price-val">${data.price}</span>
+            `}
           </a>
           
           <!-- 상세 보기 버튼 -->
@@ -348,10 +410,25 @@ function updateGalleryView(category) {
     if (priceBadge) {
       priceBadge.href = '#';
       priceBadge.onclick = (e) => openDetailModal(e, category, state.type);
-      const nameEl = priceBadge.querySelector('.viewer-price-name');
-      const valEl = priceBadge.querySelector('.viewer-price-val');
-      if (nameEl) nameEl.textContent = data.name;
-      if (valEl) valEl.textContent = data.price;
+      
+      if (data.prices && data.prices.length > 1) {
+        priceBadge.classList.add('multi-price');
+        priceBadge.innerHTML = data.prices.map(p => `
+          <div class="price-row">
+            <span class="viewer-price-name">${data.name} <small class="${p.highlightOpt ? 'highlight-opt' : ''}">${p.opt}</small>${p.tag ? `<span class="opt-tag">${p.tag}</span>` : ''}</span>
+            <span class="viewer-price-sep" style="display:none;"></span>
+            <span class="viewer-price-val ${p.highlightVal ? 'highlight-val' : ''}">${p.val}</span>
+          </div>
+        `).join('');
+      } else {
+        priceBadge.classList.remove('multi-price');
+        const p = data.prices ? data.prices[0] : null;
+        priceBadge.innerHTML = `
+          <span class="viewer-price-name">${data.name} ${p ? `<small class="${p.highlightOpt ? 'highlight-opt' : ''}">${p.opt}</small>` : ''}</span>
+          <span class="viewer-price-sep"></span>
+          <span class="viewer-price-val">${data.price}</span>
+        `;
+      }
     }
     
     const detailBtn = stage.querySelector('.viewer-detail-btn-wide');
