@@ -76,7 +76,24 @@ const bikeData = {
     price: '1,790,000원',
     link: '#', // 실제 상세페이지 링크로 수정
     images: ['images/1-1_xtron_pro_max_b.png', 'images/1-2_xtron_pro_max_g.png', 'images/1-3_xtron_pro_max_w.png'],
-    benefit: ''
+    benefit: '',
+    detailImages: [
+      'images/detail/promax/엑스트론_프로_맥스_상세페이지_01_메인.jpg',
+      'images/detail/promax/엑스트론_프로_맥스_상세페이지_02_불편사항.jpg',
+      'images/detail/promax/엑스트론_프로_맥스_상세페이지_03_매직카펫라이드.jpg',
+      'images/detail/promax/엑스트론_프로_맥스_상세페이지_04_서스펜션(1)_01.jpg',
+      'images/detail/promax/엑스트론_프로_맥스_상세페이지_04_서스펜션(1)_02.jpg',
+      'images/detail/promax/엑스트론_프로_맥스_상세페이지_04_서스펜션(1)_05.jpg',
+      'images/detail/promax/엑스트론_프로_맥스_상세페이지_05_타이어(2).jpg',
+      'images/detail/promax/엑스트론_프로_맥스_상세페이지_06_브레이크(3)_01.jpg',
+      'images/detail/promax/엑스트론_프로_맥스_상세페이지_07_변속기(4)_01.jpg',
+      'images/detail/promax/엑스트론_프로_맥스_상세페이지_08_모터,등판각도(5).jpg',
+      'images/detail/promax/엑스트론_프로_맥스_상세페이지_09_배터리(6).jpg',
+      'images/detail/promax/엑스트론_프로_맥스_상세페이지_10_계기판&기능(7).jpg',
+      'images/detail/promax/엑스트론_프로_맥스_상세페이지_11_폴딩시스템(8).jpg',
+      'images/detail/promax/엑스트론_프로_맥스_상세페이지_12_라이트(9).jpg',
+      'images/detail/promax/엑스트론_프로_맥스_상세페이지_13_사이즈,구성품,제품정보.jpg'
+    ]
   },
   'city': {
     name: '시티맥스',
@@ -268,14 +285,14 @@ function updateGalleryView(category) {
         <!-- 가격 & 상세 배지 및 네비게이션 버튼 그룹 -->
         <div class="viewer-nav-group">
           <!-- 가격 배지 -->
-          <a href="#" onclick="openDetailModal(event)" class="viewer-price-badge">
+          <a href="#" onclick="openDetailModal(event, '${category}', '${state.type}')" class="viewer-price-badge">
             <span class="viewer-price-name">${data.name}</span>
             <span class="viewer-price-sep"></span>
             <span class="viewer-price-val">${data.price}</span>
           </a>
           
           <!-- 상세 보기 버튼 -->
-          <a href="#" onclick="openDetailModal(event)" class="viewer-detail-btn-wide">
+          <a href="#" onclick="openDetailModal(event, '${category}', '${state.type}')" class="viewer-detail-btn-wide">
             <span>제품 상세 보기</span>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
@@ -330,7 +347,7 @@ function updateGalleryView(category) {
     const priceBadge = stage.querySelector('.viewer-price-badge');
     if (priceBadge) {
       priceBadge.href = '#';
-      priceBadge.onclick = openDetailModal;
+      priceBadge.onclick = (e) => openDetailModal(e, category, state.type);
       const nameEl = priceBadge.querySelector('.viewer-price-name');
       const valEl = priceBadge.querySelector('.viewer-price-val');
       if (nameEl) nameEl.textContent = data.name;
@@ -340,7 +357,7 @@ function updateGalleryView(category) {
     const detailBtn = stage.querySelector('.viewer-detail-btn-wide');
     if (detailBtn) {
       detailBtn.href = '#';
-      detailBtn.onclick = openDetailModal;
+      detailBtn.onclick = (e) => openDetailModal(e, category, state.type);
     }
 
     const oldBenefit = stage.querySelector('.benefit-alert-box');
@@ -567,32 +584,44 @@ function retryLuckyDraw() {
 /* ============================================
    상세페이지 모달
 ============================================ */
-function openDetailModal(e) {
+function openDetailModal(e, category, type) {
   if (e) e.preventDefault();
   
   const modal = document.getElementById('detailModal');
   const resultBox = document.getElementById('detailResultBox');
   
   if (modal && resultBox) {
-    // 임시로 지정 요청된 1-1 ~ 4-3 이미지를 보여줍니다
-    const tempImages = [
-      'images/1-1_xtron_pro_max_b.png',
-      'images/1-2_xtron_pro_max_g.png',
-      'images/1-3_xtron_pro_max_w.png',
-      'images/2-1_xtron_city_max_b.png',
-      'images/2-2_xtron_city_max_g.png',
-      'images/3-1_xtron_tour_max_b.png',
-      'images/3-2_xtron_tour_max_g.png',
-      'images/4-1_xtron_pro_mini_max_b.png',
-      'images/4-2_xtron_pro_mini_max_g.png',
-      'images/4-3_xtron_pro_mini_max_w.png'
-    ];
+    let targetImages = [];
+    
+    // 눌린 모델에 detailImages 속성이 정의되어 있다면 그것을 불러옴
+    if (category && type && galleryState[category] && galleryState[category].dataMap[type]) {
+      const data = galleryState[category].dataMap[type];
+      if (data.detailImages && data.detailImages.length > 0) {
+        targetImages = data.detailImages;
+      }
+    }
+    
+    // detailImages가 정의되지 않았다면 기존 임시 이미지를 로드
+    if (targetImages.length === 0) {
+      targetImages = [
+        'images/1-1_xtron_pro_max_b.png',
+        'images/1-2_xtron_pro_max_g.png',
+        'images/1-3_xtron_pro_max_w.png',
+        'images/2-1_xtron_city_max_b.png',
+        'images/2-2_xtron_city_max_g.png',
+        'images/3-1_xtron_tour_max_b.png',
+        'images/3-2_xtron_tour_max_g.png',
+        'images/4-1_xtron_pro_mini_max_b.png',
+        'images/4-2_xtron_pro_mini_max_g.png',
+        'images/4-3_xtron_pro_mini_max_w.png'
+      ];
+    }
     
     let html = '';
-    tempImages.forEach((src, index) => {
+    targetImages.forEach((src, index) => {
       // 첫 번째 이미지는 즉시 뜨도록 하고, 두 번째 이미지부터만 스크롤 시 로딩(lazy)되도록 최적화
       const loadingAttr = index === 0 ? '' : 'loading="lazy"';
-      html += `<img src="${src}" alt="상세 이미지" ${loadingAttr}>`;
+      html += `<img src="${src}" alt="상세 이미지" ${loadingAttr} style="width:100%; height:auto; display:block;">`;
     });
     
     resultBox.innerHTML = html;
