@@ -2117,3 +2117,95 @@ section { margin-top: 48px; }
   font-weight: 500;
 }
 
+/* ============================================
+   상세페이지 모달
+============================================ */
+.detail-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.detail-modal.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.detail-modal-content {
+  background: var(--c-bg);
+  width: 90%;
+  max-width: 800px;
+  height: 85vh;
+  border-radius: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  transform: translateY(30px) scale(0.95);
+  transition: all 0.4s cubic-bezier(.4,0,.2,1);
+}
+
+.detail-modal.show .detail-modal-content {
+  transform: translateY(0) scale(1);
+}
+
+.detail-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 26px;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.detail-modal-close:hover {
+  background: rgba(0,0,0,0.8);
+}
+
+.detail-result-box {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.detail-result-box img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 스크롤바 커스텀 */
+.detail-result-box::-webkit-scrollbar {
+  width: 8px;
+}
+.detail-result-box::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.05);
+}
+.detail-result-box::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.2);
+  border-radius: 4px;
+}
+

@@ -268,15 +268,15 @@ function updateGalleryView(category) {
         <!-- 가격 & 상세 배지 및 네비게이션 버튼 그룹 -->
         <div class="viewer-nav-group">
           <!-- 가격 배지 -->
-          <a href="${data.link}" target="_blank" rel="noopener noreferrer" class="viewer-price-badge">
+          <a href="#" onclick="openDetailModal(event)" class="viewer-price-badge">
             <span class="viewer-price-name">${data.name}</span>
             <span class="viewer-price-sep"></span>
             <span class="viewer-price-val">${data.price}</span>
           </a>
           
           <!-- 상세 보기 버튼 -->
-          <a href="${data.link}" target="_blank" rel="noopener noreferrer" class="viewer-detail-btn-wide">
-            <span>상세페이지로 이동</span>
+          <a href="#" onclick="openDetailModal(event)" class="viewer-detail-btn-wide">
+            <span>제품 상세 보기</span>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
@@ -329,7 +329,8 @@ function updateGalleryView(category) {
     
     const priceBadge = stage.querySelector('.viewer-price-badge');
     if (priceBadge) {
-      priceBadge.href = data.link;
+      priceBadge.href = '#';
+      priceBadge.onclick = openDetailModal;
       const nameEl = priceBadge.querySelector('.viewer-price-name');
       const valEl = priceBadge.querySelector('.viewer-price-val');
       if (nameEl) nameEl.textContent = data.name;
@@ -337,7 +338,10 @@ function updateGalleryView(category) {
     }
     
     const detailBtn = stage.querySelector('.viewer-detail-btn-wide');
-    if (detailBtn) detailBtn.href = data.link;
+    if (detailBtn) {
+      detailBtn.href = '#';
+      detailBtn.onclick = openDetailModal;
+    }
 
     const oldBenefit = stage.querySelector('.benefit-alert-box');
     if (oldBenefit) oldBenefit.remove();
@@ -558,6 +562,54 @@ function closeLuckyModal() {
 
 function retryLuckyDraw() {
   playLuckyDraw();
+}
+
+/* ============================================
+   상세페이지 모달
+============================================ */
+function openDetailModal(e) {
+  if (e) e.preventDefault();
+  
+  const modal = document.getElementById('detailModal');
+  const resultBox = document.getElementById('detailResultBox');
+  
+  if (modal && resultBox) {
+    // 임시로 지정 요청된 1-1 ~ 4-3 이미지를 보여줍니다
+    const tempImages = [
+      'images/1-1_xtron_pro_max_b.png',
+      'images/1-2_xtron_pro_max_g.png',
+      'images/1-3_xtron_pro_max_w.png',
+      'images/2-1_xtron_city_max_b.png',
+      'images/2-2_xtron_city_max_g.png',
+      'images/3-1_xtron_tour_max_b.png',
+      'images/3-2_xtron_tour_max_g.png',
+      'images/4-1_xtron_pro_mini_max_b.png',
+      'images/4-2_xtron_pro_mini_max_g.png',
+      'images/4-3_xtron_pro_mini_max_w.png'
+    ];
+    
+    let html = '';
+    tempImages.forEach((src, index) => {
+      // 첫 번째 이미지는 즉시 뜨도록 하고, 두 번째 이미지부터만 스크롤 시 로딩(lazy)되도록 최적화
+      const loadingAttr = index === 0 ? '' : 'loading="lazy"';
+      html += `<img src="${src}" alt="상세 이미지" ${loadingAttr}>`;
+    });
+    
+    resultBox.innerHTML = html;
+    modal.classList.add('show');
+    
+    // 모달 띄울 때 본문 스크롤 방지
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeDetailModal() {
+  const modal = document.getElementById('detailModal');
+  if (modal) {
+    modal.classList.remove('show');
+    // 본문 스크롤 복구
+    document.body.style.overflow = '';
+  }
 }
 
 /* ============================================
