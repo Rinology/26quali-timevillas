@@ -628,9 +628,18 @@ const luckyItems = [
   { name: '퀄리 키링', chance: 35, icon: '🔑', color: '#ffb347' }
 ];
 
+let scrollPosition = 0; // 전역 스크롤 위치 저장
+
 function playLuckyDraw() {
   const modal = document.getElementById('luckyModal');
   const resultBox = document.getElementById('luckyResultBox');
+  
+  // iOS 포함 완벽한 스크롤 잠금
+  scrollPosition = window.pageYOffset;
+  document.body.style.overflow = 'hidden';
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${scrollPosition}px`;
+  document.body.style.width = '100%';
   
   modal.classList.add('show');
   resultBox.innerHTML = '<div class="lucky-loading">🎁 두근두근... 캡슐 뽑는 중!</div>';
@@ -660,6 +669,13 @@ function playLuckyDraw() {
 
 function closeLuckyModal() {
   document.getElementById('luckyModal').classList.remove('show');
+  
+  // 스크롤 잠금 해제 및 원상복구
+  document.body.style.removeProperty('overflow');
+  document.body.style.removeProperty('position');
+  document.body.style.removeProperty('top');
+  document.body.style.removeProperty('width');
+  window.scrollTo(0, scrollPosition);
 }
 
 function retryLuckyDraw() {
@@ -804,8 +820,12 @@ function openDetailModal(e, category, type) {
     resultBox.innerHTML = html;
     modal.classList.add('show');
     
-    // 모달 띄울 때 본문 스크롤 방지
+    // 모달 띄울 때 본문 스크롤 방지 (완벽 제어)
+    scrollPosition = window.pageYOffset;
     document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollPosition}px`;
+    document.body.style.width = '100%';
   }
 }
 
@@ -814,7 +834,11 @@ function closeDetailModal() {
   if (modal) {
     modal.classList.remove('show');
     // 본문 스크롤 복구
-    document.body.style.overflow = '';
+    document.body.style.removeProperty('overflow');
+    document.body.style.removeProperty('position');
+    document.body.style.removeProperty('top');
+    document.body.style.removeProperty('width');
+    window.scrollTo(0, scrollPosition);
   }
 }
 
