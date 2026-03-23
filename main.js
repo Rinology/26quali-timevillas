@@ -622,7 +622,7 @@ function scrollToTop() {
 ============================================ */
 const luckyItems = [
   { name: '롯데백화점 상품권', chance: 5, icon: '🎫', color: 'var(--c-gold)' },
-  { name: '엑스트론로고 스포츠백', chance: 15, icon: '🎒', color: 'var(--c-blue)' },
+  { name: '스포츠백', chance: 15, icon: '🎒', color: 'var(--c-blue)' },
   { name: '퀄리 티셔츠', chance: 20, icon: '👕', color: '#ff66a3' },
   { name: '브레이크 패드', chance: 25, icon: '🛑', color: 'var(--c-cyan)' },
   { name: '퀄리 키링', chance: 35, icon: '🔑', color: '#ffb347' }
