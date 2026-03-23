@@ -78,24 +78,24 @@ const bikeData = {
       { opt: '19.6Ah', val: '1,790,000원' }
     ],
     link: '#', // 실제 상세페이지 링크로 수정
-    images: ['images/1-1_xtron_pro_max_b.png', 'images/1-2_xtron_pro_max_g.png', 'images/1-3_xtron_pro_max_w.png'],
+    images: ['images/1-1_xtron_pro_max_b.webp', 'images/1-2_xtron_pro_max_g.webp', 'images/1-3_xtron_pro_max_w.webp'],
     benefit: '',
     detailImages: [
-      'images/detail/promax/엑스트론_프로_맥스_상세페이지_01_메인.jpg',
-      'images/detail/promax/엑스트론_프로_맥스_상세페이지_02_불편사항.jpg',
-      'images/detail/promax/엑스트론_프로_맥스_상세페이지_03_매직카펫라이드.jpg',
-      'images/detail/promax/엑스트론_프로_맥스_상세페이지_04_서스펜션(1)_01.jpg',
-      'images/detail/promax/엑스트론_프로_맥스_상세페이지_04_서스펜션(1)_02.jpg',
-      'images/detail/promax/엑스트론_프로_맥스_상세페이지_04_서스펜션(1)_05.jpg',
-      'images/detail/promax/엑스트론_프로_맥스_상세페이지_05_타이어(2).jpg',
-      'images/detail/promax/엑스트론_프로_맥스_상세페이지_06_브레이크(3)_01.jpg',
-      'images/detail/promax/엑스트론_프로_맥스_상세페이지_07_변속기(4)_01.jpg',
-      'images/detail/promax/엑스트론_프로_맥스_상세페이지_08_모터,등판각도(5).jpg',
-      'images/detail/promax/엑스트론_프로_맥스_상세페이지_09_배터리(6).jpg',
-      'images/detail/promax/엑스트론_프로_맥스_상세페이지_10_계기판&기능(7).jpg',
-      'images/detail/promax/엑스트론_프로_맥스_상세페이지_11_폴딩시스템(8).jpg',
-      'images/detail/promax/엑스트론_프로_맥스_상세페이지_12_라이트(9).jpg',
-      'images/detail/promax/엑스트론_프로_맥스_상세페이지_13_사이즈,구성품,제품정보.jpg'
+      'images/detail/promax/엑스트론_프로_맥스_상세페이지_01_메인.webp',
+      'images/detail/promax/엑스트론_프로_맥스_상세페이지_02_불편사항.webp',
+      'images/detail/promax/엑스트론_프로_맥스_상세페이지_03_매직카펫라이드.webp',
+      'images/detail/promax/엑스트론_프로_맥스_상세페이지_04_서스펜션(1)_01.webp',
+      'images/detail/promax/엑스트론_프로_맥스_상세페이지_04_서스펜션(1)_02.webp',
+      'images/detail/promax/엑스트론_프로_맥스_상세페이지_04_서스펜션(1)_05.webp',
+      'images/detail/promax/엑스트론_프로_맥스_상세페이지_05_타이어(2).webp',
+      'images/detail/promax/엑스트론_프로_맥스_상세페이지_06_브레이크(3)_01.webp',
+      'images/detail/promax/엑스트론_프로_맥스_상세페이지_07_변속기(4)_01.webp',
+      'images/detail/promax/엑스트론_프로_맥스_상세페이지_08_모터,등판각도(5).webp',
+      'images/detail/promax/엑스트론_프로_맥스_상세페이지_09_배터리(6).webp',
+      'images/detail/promax/엑스트론_프로_맥스_상세페이지_10_계기판&기능(7).webp',
+      'images/detail/promax/엑스트론_프로_맥스_상세페이지_11_폴딩시스템(8).webp',
+      'images/detail/promax/엑스트론_프로_맥스_상세페이지_12_라이트(9).webp',
+      'images/detail/promax/엑스트론_프로_맥스_상세페이지_13_사이즈,구성품,제품정보.webp'
     ]
   },
   'city': {
@@ -105,7 +105,7 @@ const bikeData = {
       { opt: '19.6Ah', val: '1,790,000원' }
     ],
     link: '#',
-    images: ['images/2-1_xtron_city_max_b.png', 'images/2-2_xtron_city_max_g.png'],
+    images: ['images/2-1_xtron_city_max_b.webp', 'images/2-2_xtron_city_max_g.webp'],
     benefit: ''
   },
   'tour': {
@@ -115,7 +115,7 @@ const bikeData = {
       { opt: '19.6Ah', val: '1,790,000원' }
     ],
     link: '#',
-    images: ['images/3-1_xtron_tour_max_b.png', 'images/3-2_xtron_tour_max_g.png'],
+    images: ['images/3-1_xtron_tour_max_b.webp', 'images/3-2_xtron_tour_max_g.webp'],
     benefit: ''
   },
   'promini': {
@@ -126,7 +126,7 @@ const bikeData = {
       { opt: '28.5Ah', val: '1,590,000원' }
     ],
     link: '#',
-    images: ['images/4-1_xtron_pro_mini_max_b.png', 'images/4-2_xtron_pro_mini_max_g.png', 'images/4-3_xtron_pro_mini_max_w.png'],
+    images: ['images/4-1_xtron_pro_mini_max_b.webp', 'images/4-2_xtron_pro_mini_max_g.webp', 'images/4-3_xtron_pro_mini_max_w.webp'],
     benefit: ''
   }
 };
@@ -140,7 +140,7 @@ const xtronData = {
       { opt: '20Ah', val: '1,630,000원' }
     ],
     link: '#',
-    images: ['images/5-2_xtron_slim_b.png', 'images/5-2_xtron_slim_G.png'],
+    images: ['images/5-2_xtron_slim_b.webp', 'images/5-2_xtron_slim_G.webp'],
     benefit: '슬림 컴팩트 전용 리어랙'
   },
   'mini': {
@@ -151,7 +151,7 @@ const xtronData = {
       { opt: '20Ah', val: '1,830,000원' }
     ],
     link: '#',
-    images: ['images/5-1_xtron_mini_b.png', 'images/5-1_xtron_mini_G.png'],
+    images: ['images/5-1_xtron_mini_b.webp', 'images/5-1_xtron_mini_G.webp'],
     benefit: '미니/슬림 모델 리어랙 무상 장착'
   },
   'eqneo': {
@@ -161,7 +161,7 @@ const xtronData = {
       { opt: '20Ah', val: '1,730,000원' }
     ],
     link: '#',
-    images: ['images/6_xtron_neo_be.png'],
+    images: ['images/6_xtron_neo_be.webp'],
     benefit: '자전거 바구니 무상 장착'
   },
   'gt': {
@@ -172,7 +172,7 @@ const xtronData = {
       { opt: '28.5Ah', val: '1,790,000원' }
     ],
     link: '#',
-    images: ['images/7-2_xtron_gt_g.png'],
+    images: ['images/7-2_xtron_gt_g.webp'],
     benefit: '프리미엄 썬투어 싯포스트 무상 장착'
   },
   'gtmini': {
@@ -183,7 +183,7 @@ const xtronData = {
       { opt: '28.5Ah', val: '1,490,000원' }
     ],
     link: '#',
-    images: ['images/7-3_xtron_gt_mini_w.png'],
+    images: ['images/7-3_xtron_gt_mini_w.webp'],
     benefit: '프리미엄 썬투어 싯포스트 무상 장착'
   },
   'gts': {
@@ -194,7 +194,7 @@ const xtronData = {
       { opt: '28.5Ah', val: '2,230,000원' }
     ],
     link: '#',
-    images: ['images/7-1_xtron_gt_s_b.png'],
+    images: ['images/7-1_xtron_gt_s_b.webp'],
     benefit: '프리미엄 썬투어 싯포스트 무상 장착'
   },
   'xpro': {
@@ -205,21 +205,21 @@ const xtronData = {
       { opt: '28.5Ah', val: '1,790,000원' }
     ],
     link: '#',
-    images: ['images/8-2_xtron_pro_g.png', 'images/8-2_xtron_pro_B.png'],
+    images: ['images/8-2_xtron_pro_g.webp', 'images/8-2_xtron_pro_B.webp'],
     benefit: '프리미엄 썬투어 싯포스트 무상 장착'
   },
   'xpros': {
     name: '프로 S',
     price: '예약주문',
     link: '#',
-    images: ['images/8-1_xtron_pro_s_w.png', 'images/9-1_xtron_proS_b.png', 'images/9-1_xtron_proS_g.png'],
+    images: ['images/8-1_xtron_pro_s_w.webp', 'images/9-1_xtron_proS_b.webp', 'images/9-1_xtron_proS_g.webp'],
     benefit: '프리미엄 썬투어 싯포스트 무상 장착'
   },
   'xcity': {
     name: '시티',
     price: '예약주문',
     link: '#',
-    images: ['images/8-3_xtron_city_g.png', 'images/8-3_xtron_city_B.png'],
+    images: ['images/8-3_xtron_city_g.webp', 'images/8-3_xtron_city_B.webp'],
     benefit: ''
   },
   'xtour': {
@@ -230,7 +230,7 @@ const xtronData = {
       { opt: '28.5Ah', val: '1,790,000원' }
     ],
     link: '#',
-    images: ['images/8-4_xtron_tour_g.png', 'images/8-4_xtron_tour_b.png'],
+    images: ['images/8-4_xtron_tour_g.webp', 'images/8-4_xtron_tour_b.webp'],
     benefit: '프리미엄 썬투어 싯포스트 무상 장착'
   },
   'xpromini': {
@@ -241,7 +241,7 @@ const xtronData = {
       { opt: '28.5Ah', val: '1,490,000원' }
     ],
     link: '#',
-    images: ['images/8-5_xtron_pro_mini_w.png', 'images/8-5_xtron_pro_mini_b.png', 'images/8-5_xtron_pro_mini_g.png'],
+    images: ['images/8-5_xtron_pro_mini_w.webp', 'images/8-5_xtron_pro_mini_b.webp', 'images/8-5_xtron_pro_mini_g.webp'],
     benefit: ''
   },
   'eq': {
@@ -252,7 +252,7 @@ const xtronData = {
       { singleLine: '*포폴라모어 변경시 30,000원 추가', highlightVal: true }
     ],
     link: '#',
-    images: ['images/8-6_xtron_eq_w.png', 'images/8-6_xtron_eq_B.png', 'images/8-6_xtron_eq_G.png'],
+    images: ['images/8-6_xtron_eq_w.webp', 'images/8-6_xtron_eq_B.webp', 'images/8-6_xtron_eq_G.webp'],
     benefit: '프론트 바구니 및 포폴라 제공'
   }
 };
@@ -714,95 +714,95 @@ function retryLuckyDraw() {
 const modelDetailImages = {
   // 맥스 시리즈 (bikeData)
   'pro': [
-    'images/detail/promax/엑스트론_프로_맥스_상세페이지_01_메인.jpg',
-    'images/detail/promax/엑스트론_프로_맥스_상세페이지_02_불편사항.jpg',
-    'images/detail/promax/엑스트론_프로_맥스_상세페이지_03_매직카펫라이드.jpg',
-    'images/detail/promax/엑스트론_프로_맥스_상세페이지_04_서스펜션(1)_01.jpg',
-    'images/detail/promax/엑스트론_프로_맥스_상세페이지_04_서스펜션(1)_02.jpg',
-    'images/detail/promax/엑스트론_프로_맥스_상세페이지_04_서스펜션(1)_05.jpg',
-    'images/detail/promax/엑스트론_프로_맥스_상세페이지_05_타이어(2).jpg',
-    'images/detail/promax/엑스트론_프로_맥스_상세페이지_06_브레이크(3)_01.jpg',
-    'images/detail/promax/엑스트론_프로_맥스_상세페이지_07_변속기(4)_01.jpg',
-    'images/detail/promax/엑스트론_프로_맥스_상세페이지_08_모터,등판각도(5).jpg',
-    'images/detail/promax/엑스트론_프로_맥스_상세페이지_09_배터리(6).jpg',
-    'images/detail/promax/엑스트론_프로_맥스_상세페이지_10_계기판&기능(7).jpg',
-    'images/detail/promax/엑스트론_프로_맥스_상세페이지_11_폴딩시스템(8).jpg',
-    'images/detail/promax/엑스트론_프로_맥스_상세페이지_12_라이트(9).jpg',
-    'images/detail/promax/엑스트론_프로_맥스_상세페이지_13_사이즈,구성품,제품정보.jpg'
+    'images/detail/promax/엑스트론_프로_맥스_상세페이지_01_메인.webp',
+    'images/detail/promax/엑스트론_프로_맥스_상세페이지_02_불편사항.webp',
+    'images/detail/promax/엑스트론_프로_맥스_상세페이지_03_매직카펫라이드.webp',
+    'images/detail/promax/엑스트론_프로_맥스_상세페이지_04_서스펜션(1)_01.webp',
+    'images/detail/promax/엑스트론_프로_맥스_상세페이지_04_서스펜션(1)_02.webp',
+    'images/detail/promax/엑스트론_프로_맥스_상세페이지_04_서스펜션(1)_05.webp',
+    'images/detail/promax/엑스트론_프로_맥스_상세페이지_05_타이어(2).webp',
+    'images/detail/promax/엑스트론_프로_맥스_상세페이지_06_브레이크(3)_01.webp',
+    'images/detail/promax/엑스트론_프로_맥스_상세페이지_07_변속기(4)_01.webp',
+    'images/detail/promax/엑스트론_프로_맥스_상세페이지_08_모터,등판각도(5).webp',
+    'images/detail/promax/엑스트론_프로_맥스_상세페이지_09_배터리(6).webp',
+    'images/detail/promax/엑스트론_프로_맥스_상세페이지_10_계기판&기능(7).webp',
+    'images/detail/promax/엑스트론_프로_맥스_상세페이지_11_폴딩시스템(8).webp',
+    'images/detail/promax/엑스트론_프로_맥스_상세페이지_12_라이트(9).webp',
+    'images/detail/promax/엑스트론_프로_맥스_상세페이지_13_사이즈,구성품,제품정보.webp'
   ],
   'city': [
-    'images/detail/citymax/엑스트론_시티_맥스_상세페이지_01_메인.jpg',
-    'images/detail/citymax/엑스트론_시티_맥스_상세페이지_02_불편사항.jpg',
-    'images/detail/citymax/엑스트론_시티_맥스_상세페이지_03_매직카펫라이드.jpg',
-    'images/detail/citymax/엑스트론_시티_맥스_상세페이지_04_서스펜션(1)_01.jpg',
-    'images/detail/citymax/엑스트론_시티_맥스_상세페이지_04_서스펜션(1)_02.jpg',
-    'images/detail/citymax/엑스트론_시티_맥스_상세페이지_04_서스펜션(1)_05.jpg',
-    'images/detail/citymax/엑스트론_시티_맥스_상세페이지_05_타이어(2).jpg',
-    'images/detail/citymax/엑스트론_시티_맥스_상세페이지_06_브레이크(3)_01.jpg',
-    'images/detail/citymax/엑스트론_시티_맥스_상세페이지_07_변속기(4)_01.jpg',
-    'images/detail/citymax/엑스트론_시티_맥스_상세페이지_08_모터,등판각도(5).jpg',
-    'images/detail/citymax/엑스트론_시티_맥스_상세페이지_09_배터리(6).jpg',
-    'images/detail/citymax/엑스트론_시티_맥스_상세페이지_10_계기판&기능(7).jpg',
-    'images/detail/citymax/엑스트론_시티_맥스_상세페이지_11_라이트(8).jpg',
-    'images/detail/citymax/엑스트론_시티_맥스_상세페이지_12_사이즈,구성품,제품정보.jpg'
+    'images/detail/citymax/엑스트론_시티_맥스_상세페이지_01_메인.webp',
+    'images/detail/citymax/엑스트론_시티_맥스_상세페이지_02_불편사항.webp',
+    'images/detail/citymax/엑스트론_시티_맥스_상세페이지_03_매직카펫라이드.webp',
+    'images/detail/citymax/엑스트론_시티_맥스_상세페이지_04_서스펜션(1)_01.webp',
+    'images/detail/citymax/엑스트론_시티_맥스_상세페이지_04_서스펜션(1)_02.webp',
+    'images/detail/citymax/엑스트론_시티_맥스_상세페이지_04_서스펜션(1)_05.webp',
+    'images/detail/citymax/엑스트론_시티_맥스_상세페이지_05_타이어(2).webp',
+    'images/detail/citymax/엑스트론_시티_맥스_상세페이지_06_브레이크(3)_01.webp',
+    'images/detail/citymax/엑스트론_시티_맥스_상세페이지_07_변속기(4)_01.webp',
+    'images/detail/citymax/엑스트론_시티_맥스_상세페이지_08_모터,등판각도(5).webp',
+    'images/detail/citymax/엑스트론_시티_맥스_상세페이지_09_배터리(6).webp',
+    'images/detail/citymax/엑스트론_시티_맥스_상세페이지_10_계기판&기능(7).webp',
+    'images/detail/citymax/엑스트론_시티_맥스_상세페이지_11_라이트(8).webp',
+    'images/detail/citymax/엑스트론_시티_맥스_상세페이지_12_사이즈,구성품,제품정보.webp'
   ],
   'tour': [
-    'images/detail/tourmax/엑스트론_투어_맥스_상세페이지_01_메인.jpg',
-    'images/detail/tourmax/엑스트론_투어_맥스_상세페이지_02_불편사항.jpg',
-    'images/detail/tourmax/엑스트론_투어_맥스_상세페이지_03_매직카펫라이드.jpg',
-    'images/detail/tourmax/엑스트론_투어_맥스_상세페이지_04_서스펜션(1)_01.jpg',
-    'images/detail/tourmax/엑스트론_투어_맥스_상세페이지_04_서스펜션(1)_02.jpg',
-    'images/detail/tourmax/엑스트론_투어_맥스_상세페이지_04_서스펜션(1)_05.jpg',
-    'images/detail/tourmax/엑스트론_투어_맥스_상세페이지_05_타이어(2).jpg',
-    'images/detail/tourmax/엑스트론_투어_맥스_상세페이지_06_브레이크(3)_01.jpg',
-    'images/detail/tourmax/엑스트론_투어_맥스_상세페이지_07_변속기(4)_01.jpg',
-    'images/detail/tourmax/엑스트론_투어_맥스_상세페이지_08_모터,등판각도(5).jpg',
-    'images/detail/tourmax/엑스트론_투어_맥스_상세페이지_09_배터리(6).jpg',
-    'images/detail/tourmax/엑스트론_투어_맥스_상세페이지_10_계기판&기능(7).jpg',
-    'images/detail/tourmax/엑스트론_투어_맥스_상세페이지_11_라이트(8).jpg',
-    'images/detail/tourmax/엑스트론_투어_맥스_상세페이지_12_사이즈,구성품,제품정보.jpg'
+    'images/detail/tourmax/엑스트론_투어_맥스_상세페이지_01_메인.webp',
+    'images/detail/tourmax/엑스트론_투어_맥스_상세페이지_02_불편사항.webp',
+    'images/detail/tourmax/엑스트론_투어_맥스_상세페이지_03_매직카펫라이드.webp',
+    'images/detail/tourmax/엑스트론_투어_맥스_상세페이지_04_서스펜션(1)_01.webp',
+    'images/detail/tourmax/엑스트론_투어_맥스_상세페이지_04_서스펜션(1)_02.webp',
+    'images/detail/tourmax/엑스트론_투어_맥스_상세페이지_04_서스펜션(1)_05.webp',
+    'images/detail/tourmax/엑스트론_투어_맥스_상세페이지_05_타이어(2).webp',
+    'images/detail/tourmax/엑스트론_투어_맥스_상세페이지_06_브레이크(3)_01.webp',
+    'images/detail/tourmax/엑스트론_투어_맥스_상세페이지_07_변속기(4)_01.webp',
+    'images/detail/tourmax/엑스트론_투어_맥스_상세페이지_08_모터,등판각도(5).webp',
+    'images/detail/tourmax/엑스트론_투어_맥스_상세페이지_09_배터리(6).webp',
+    'images/detail/tourmax/엑스트론_투어_맥스_상세페이지_10_계기판&기능(7).webp',
+    'images/detail/tourmax/엑스트론_투어_맥스_상세페이지_11_라이트(8).webp',
+    'images/detail/tourmax/엑스트론_투어_맥스_상세페이지_12_사이즈,구성품,제품정보.webp'
   ],
   'promini': [
-    'images/detail/prominimax/엑스트론_프로미니_맥스_상세페이지_01_메인.jpg',
-    'images/detail/prominimax/엑스트론_프로미니_맥스_상세페이지_02_불편사항.jpg',
-    'images/detail/prominimax/엑스트론_프로미니_맥스_상세페이지_03_매직카펫라이드.jpg',
-    'images/detail/prominimax/엑스트론_프로미니_맥스_상세페이지_04_서스펜션(1)_01.jpg',
-    'images/detail/prominimax/엑스트론_프로미니_맥스_상세페이지_04_서스펜션(1)_02.jpg',
-    'images/detail/prominimax/엑스트론_프로미니_맥스_상세페이지_04_서스펜션(1)_05.jpg',
-    'images/detail/prominimax/엑스트론_프로미니_맥스_상세페이지_05_타이어(2).jpg',
-    'images/detail/prominimax/엑스트론_프로미니_맥스_상세페이지_06_브레이크(3).jpg',
-    'images/detail/prominimax/엑스트론_프로미니_맥스_상세페이지_07_모터,등판각도(4).jpg',
-    'images/detail/prominimax/엑스트론_프로미니_맥스_상세페이지_08_배터리(5).jpg',
-    'images/detail/prominimax/엑스트론_프로미니_맥스_상세페이지_09_계기판&기능(6).jpg',
-    'images/detail/prominimax/엑스트론_프로미니_맥스_상세페이지_10_폴딩(7).jpg',
-    'images/detail/prominimax/엑스트론_프로미니_맥스_상세페이지_11_라이트(8).jpg',
-    'images/detail/prominimax/엑스트론_프로미니_맥스_상세페이지_13_사이즈,구성품,제품정보.jpg'
+    'images/detail/prominimax/엑스트론_프로미니_맥스_상세페이지_01_메인.webp',
+    'images/detail/prominimax/엑스트론_프로미니_맥스_상세페이지_02_불편사항.webp',
+    'images/detail/prominimax/엑스트론_프로미니_맥스_상세페이지_03_매직카펫라이드.webp',
+    'images/detail/prominimax/엑스트론_프로미니_맥스_상세페이지_04_서스펜션(1)_01.webp',
+    'images/detail/prominimax/엑스트론_프로미니_맥스_상세페이지_04_서스펜션(1)_02.webp',
+    'images/detail/prominimax/엑스트론_프로미니_맥스_상세페이지_04_서스펜션(1)_05.webp',
+    'images/detail/prominimax/엑스트론_프로미니_맥스_상세페이지_05_타이어(2).webp',
+    'images/detail/prominimax/엑스트론_프로미니_맥스_상세페이지_06_브레이크(3).webp',
+    'images/detail/prominimax/엑스트론_프로미니_맥스_상세페이지_07_모터,등판각도(4).webp',
+    'images/detail/prominimax/엑스트론_프로미니_맥스_상세페이지_08_배터리(5).webp',
+    'images/detail/prominimax/엑스트론_프로미니_맥스_상세페이지_09_계기판&기능(6).webp',
+    'images/detail/prominimax/엑스트론_프로미니_맥스_상세페이지_10_폴딩(7).webp',
+    'images/detail/prominimax/엑스트론_프로미니_맥스_상세페이지_11_라이트(8).webp',
+    'images/detail/prominimax/엑스트론_프로미니_맥스_상세페이지_13_사이즈,구성품,제품정보.webp'
   ],
   
   // 엑스트론 시리즈(xtronData)
-  'slim': ['images/detail/slim/2025_엑스트론_슬림_상세페이지_02.jpg'],
-  'mini': ['images/detail/mini/2026_엑스트론_미니_상세페이지.jpg'],
+  'slim': ['images/detail/slim/2025_엑스트론_슬림_상세페이지_02.webp'],
+  'mini': ['images/detail/mini/2026_엑스트론_미니_상세페이지.webp'],
   'gt': [
-    'images/detail/GT/2025_엑스트론_GT_상세페이지_01.jpg',
-    'images/detail/GT/2025_엑스트론_GT_상세페이지_02.jpg'
+    'images/detail/GT/2025_엑스트론_GT_상세페이지_01.webp',
+    'images/detail/GT/2025_엑스트론_GT_상세페이지_02.webp'
   ],
-  'gtmini': ['images/detail/GTmini/2025_엑스트론_GT미니_상세페이지.jpg'],
+  'gtmini': ['images/detail/GTmini/2025_엑스트론_GT미니_상세페이지.webp'],
   'xpro': [
-    'images/detail/pro/2025_엑스트론_프로_상세페이지_01.jpg',
-    'images/detail/pro/2025_엑스트론_프로_상세페이지_02.jpg'
+    'images/detail/pro/2025_엑스트론_프로_상세페이지_01.webp',
+    'images/detail/pro/2025_엑스트론_프로_상세페이지_02.webp'
   ],
-  'xpros': ['images/detail/proS/2025_엑스트론_프로S_상세페이지.jpg'],
+  'xpros': ['images/detail/proS/2025_엑스트론_프로S_상세페이지.webp'],
   'xcity': [
-    'images/detail/city/2025_엑스트론_시티_상세페이지_01.jpg',
-    'images/detail/city/2025_엑스트론_시티_상세페이지_02.jpg'
+    'images/detail/city/2025_엑스트론_시티_상세페이지_01.webp',
+    'images/detail/city/2025_엑스트론_시티_상세페이지_02.webp'
   ],
   'xtour': [
-    'images/detail/tour/2025_엑스트론_투어_상세페이지_01.jpg',
-    'images/detail/tour/2025_엑스트론_투어_상세페이지_02.jpg'
+    'images/detail/tour/2025_엑스트론_투어_상세페이지_01.webp',
+    'images/detail/tour/2025_엑스트론_투어_상세페이지_02.webp'
   ],
-  'xpromini': ['images/detail/promini/2025_엑스트론_프로미니_상세페이지.jpg'],
-  'eqneo': ['images/detail/EQ/2025_엑스트론_EQ_상세페이지.jpg'],
-  'eq': ['images/detail/EQ/2025_엑스트론_EQ_상세페이지.jpg']
+  'xpromini': ['images/detail/promini/2025_엑스트론_프로미니_상세페이지.webp'],
+  'eqneo': ['images/detail/EQ/2025_엑스트론_EQ_상세페이지.webp'],
+  'eq': ['images/detail/EQ/2025_엑스트론_EQ_상세페이지.webp']
 };
 
 function openDetailModal(e, category, type) {
@@ -829,10 +829,10 @@ function openDetailModal(e, category, type) {
     // 타겟 이미지가 맵핑되지 않았다면 임시 목업 (또는 빈 화면 방지용 메인 이미지 등)
     if (targetImages.length === 0) {
       targetImages = [
-        'images/1-1_xtron_pro_max_b.png',
-        'images/1-2_xtron_pro_max_g.png',
-        'images/1-3_xtron_pro_max_w.png',
-        'images/2-1_xtron_city_max_b.png'
+        'images/1-1_xtron_pro_max_b.webp',
+        'images/1-2_xtron_pro_max_g.webp',
+        'images/1-3_xtron_pro_max_w.webp',
+        'images/2-1_xtron_city_max_b.webp'
       ];
     }
     
