@@ -621,7 +621,7 @@ function scrollToTop() {
    럭키 드로우 미니게임
 ============================================ */
 const luckyItems = [
-  { name: '신세계 상품권', chance: 5, icon: '🎫', color: 'var(--c-gold)' },
+  { name: '롯데백화점 상품권', chance: 5, icon: '🎫', color: 'var(--c-gold)' },
   { name: '퀄리스포츠 백', chance: 15, icon: '🎒', color: 'var(--c-blue)' },
   { name: '퀄리 티셔츠', chance: 20, icon: '👕', color: '#ff66a3' },
   { name: '브레이크 패드', chance: 25, icon: '🛑', color: 'var(--c-cyan)' },
