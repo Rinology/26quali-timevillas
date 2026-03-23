@@ -634,12 +634,15 @@ function playLuckyDraw() {
   const modal = document.getElementById('luckyModal');
   const resultBox = document.getElementById('luckyResultBox');
   
-  // iOS 포함 완벽한 스크롤 잠금
-  scrollPosition = window.pageYOffset;
-  document.body.style.overflow = 'hidden';
-  document.body.style.position = 'fixed';
-  document.body.style.top = `-${scrollPosition}px`;
-  document.body.style.width = '100%';
+  // 모달이 이미 열려있지 않은 경우에만 스크롤 위치 저장 및 잠금
+  if (!modal.classList.contains('show')) {
+    // iOS 포함 완벽한 스크롤 잠금
+    scrollPosition = window.pageYOffset;
+    document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollPosition}px`;
+    document.body.style.width = '100%';
+  }
   
   modal.classList.add('show');
   resultBox.innerHTML = '<div class="lucky-loading">🎁 두근두근... 캡슐 뽑는 중!</div>';
