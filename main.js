@@ -370,15 +370,34 @@ function updateGalleryView(category) {
     `;
     setupSwipeListener(viewer.querySelector('.swipe-container'), () => prevGalleryImage(category), () => nextGalleryImage(category));
   } else {
-    // 기존 DOM 업데이트 (깜빡임 최소화)
+    // 기존 DOM 업데이트 (깜빡임 최소화 및 로딩 피드백 추가)
     const img = stage.querySelector('.viewer-bike-img');
     if (img) {
-      img.style.animation = 'none';
-      img.getBoundingClientRect(); // 플로우 트리거
-      img.src = imageSrc;
-      img.alt = `${data.name} 이미지 ${state.imgIdx + 1}`;
-      img.style.transform = ''; // 인라인 트랜스폼 초기화
-      img.style.animation = 'fadeIn 0.4s ease both';
+      if (img.src.includes(imageSrc)) {
+         // 이미 같은 이미지일 경우 무시
+         img.style.animation = 'none';
+         img.getBoundingClientRect();
+         img.style.animation = 'fadeIn 0.4s ease both';
+      } else {
+         img.style.animation = 'none';
+         img.style.opacity = '0.3'; 
+         img.style.transition = 'opacity 0.2s ease';
+         
+         const onImageLoad = () => {
+           img.style.transition = '';
+           img.style.opacity = '1';
+           img.style.animation = 'fadeIn 0.4s ease both';
+           img.removeEventListener('load', onImageLoad);
+           img.removeEventListener('error', onImageLoad);
+         };
+         
+         img.addEventListener('load', onImageLoad);
+         img.addEventListener('error', onImageLoad);
+         
+         img.src = imageSrc;
+         img.alt = `${data.name} 이미지 ${state.imgIdx + 1}`;
+         img.style.transform = ''; // 인라인 트랜스폼 초기화
+      }
     }
     
     // 스와이프 힌트 업데이트
