@@ -210,14 +210,14 @@ const xtronData = {
   },
   'xpros': {
     name: '프로 S',
-    price: '1,690,000원 ~',
+    price: '예약주문',
     link: '#',
     images: ['images/8-1_xtron_pro_s_w.png', 'images/9-1_xtron_proS_b.png', 'images/9-1_xtron_proS_g.png'],
     benefit: '프리미엄 썬투어 싯포스트 무상 장착'
   },
   'xcity': {
     name: '시티',
-    price: '추후공개',
+    price: '예약주문',
     link: '#',
     images: ['images/8-3_xtron_city_g.png', 'images/8-3_xtron_city_B.png'],
     benefit: ''
@@ -675,7 +675,11 @@ function closeLuckyModal() {
   document.body.style.removeProperty('position');
   document.body.style.removeProperty('top');
   document.body.style.removeProperty('width');
+  
+  // smooth 스크롤 방해 방지
+  document.documentElement.style.scrollBehavior = 'auto';
   window.scrollTo(0, scrollPosition);
+  document.documentElement.style.scrollBehavior = '';
 }
 
 function retryLuckyDraw() {
@@ -838,7 +842,11 @@ function closeDetailModal() {
     document.body.style.removeProperty('position');
     document.body.style.removeProperty('top');
     document.body.style.removeProperty('width');
+
+    // smooth 스크롤 방해 방지
+    document.documentElement.style.scrollBehavior = 'auto';
     window.scrollTo(0, scrollPosition);
+    document.documentElement.style.scrollBehavior = '';
   }
 }
 
