@@ -134,9 +134,8 @@ const bikeData = {
 const xtronData = {
   'slim': {
     name: '슬림',
-    price: '1,590,000원 ~',
+    price: '1,630,000원',
     prices: [
-      { opt: '15Ah', val: '1,590,000원', highlightOpt: true, tag: 'BEST' },
       { opt: '20Ah', val: '1,630,000원' }
     ],
     link: '#',
@@ -145,9 +144,8 @@ const xtronData = {
   },
   'mini': {
     name: '미니',
-    price: '1,730,000원 ~',
+    price: '1,830,000원',
     prices: [
-      { opt: '15Ah', val: '1,730,000원', highlightOpt: true, tag: 'BEST' },
       { opt: '20Ah', val: '1,830,000원' }
     ],
     link: '#',
