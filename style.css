@@ -2275,3 +2275,91 @@ section { margin-top: 48px; }
   border-radius: 4px;
 }
 
+/* ============================================
+   이벤트 종료 화면 (종료 시 노출)
+============================================ */
+.event-ended-screen {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-color: var(--c-bg); /* 깔끔하고 밝은 배경 */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+body.is-ended .page-wrapper {
+  display: none !important;
+}
+
+body.is-ended #scrollTopBtn {
+  display: none !important;
+}
+
+body.is-ended .event-ended-screen {
+  display: flex !important;
+}
+
+/* 벚꽃 효과는 숨기라는 요청이 있었음 */
+body.is-ended #cherry-blossom-container {
+  display: none !important;
+}
+
+.ended-content {
+  background: var(--c-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--c-card-border);
+  border-radius: var(--radius-card);
+  padding: 50px 30px;
+  box-shadow: var(--shadow-card);
+  max-width: 500px;
+  width: 100%;
+  animation: fadeInUp 0.8s ease both;
+}
+
+.ended-icon {
+  font-size: 50px;
+  margin-bottom: 20px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.ended-title {
+  font-size: clamp(24px, 6vw, 32px);
+  font-weight: 800;
+  color: var(--c-text);
+  line-height: 1.3;
+  margin-bottom: 30px;
+  word-break: keep-all;
+}
+
+.ended-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.ended-actions .btn {
+  width: 100%;
+  padding: 16px;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ended-actions .btn-secondary {
+  background: white;
+  color: var(--c-text);
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.ended-actions .btn-secondary:hover {
+  background: #f8fafc;
+  border-color: var(--c-blue);
+  color: var(--c-blue);
+}

@@ -1,3 +1,10 @@
+/* ---- 이벤트 종료 처리 ---- */
+const EVENT_END_DATE = new Date('2026-04-17T00:00:00+09:00').getTime();
+
+if (new Date().getTime() >= EVENT_END_DATE) {
+  document.body.classList.add('is-ended');
+}
+
 /* ---- D-Day 카운터 ---- */
 function updateCountdown() {
   const target = new Date('2026-03-27T10:30:00+09:00');
